@@ -1,7 +1,16 @@
+"""creates material from objectname"""
 import bpy
+
+materialSuffix = ""
+materialPrefix = "MA_"
+
+# TODO:
+replaceSuffix = ""
+replacePrefix = ""
 
 
 def makeMaterial(name, diffuse):
+    """ creates a material if it doesn't exist yet """
     b_mat_exists = False
     for mat in bpy.data.materials:
         if mat.name == name:
@@ -14,14 +23,15 @@ def makeMaterial(name, diffuse):
 
 
 def setMaterial(ob, mat):
+    """append material to object"""
     me = ob.data
     me.materials.append(mat)
 
 
 for obj in bpy.context.selected_objects:
+    """ """
     if obj.type == 'MESH':
-        matName = obj.name + '_MAT'
-        # matName.replace('_LP', '_MAT')
+        matName = materialPrefix + obj.name + materialSuffix # matName.replace('_LP', '_MAT')
 
         if matName in bpy.data.materials:
             for mat in bpy.data.materials:

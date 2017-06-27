@@ -1,3 +1,4 @@
+"""deletes all vertex groups"""
 import bpy
 
 for obj in bpy.data.objects:

@@ -1,3 +1,4 @@
+"""New group form objectName"""
 import bpy
 
 activeOb = bpy.context.scene.objects.active 

@@ -1,3 +1,4 @@
+"""converts all non meshes to meshes, applies modifiers and merges all objects"""
 import bpy
 
 def duplicateObject(ob):

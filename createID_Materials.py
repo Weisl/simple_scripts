@@ -1,5 +1,9 @@
+"""creates ID map materials """
+
+fakeUser = True
+
 import bpy
- 
+
 def makeMaterial(name, diffuse):
     b_mat_exists = False
     for mat in bpy.data.materials:
@@ -9,6 +13,8 @@ def makeMaterial(name, diffuse):
     if b_mat_exists == False:     
         mat = bpy.data.materials.new(name)
         mat.diffuse_color = diffuse
+        if fakeUser == True:
+            mat.use_fake_user = True
     return mat
  
 def setMaterial(ob, mat):
@@ -20,7 +26,7 @@ def run(origin):
     red = makeMaterial('ID_Red', (1,0,0))
     blue = makeMaterial('ID_Blue', (0,0,1))
     green = makeMaterial('ID_Green', (0,1,0))
-    yellow = makeMaterial('ID_Yellow', (1,1,0))
+    yellow = makeMaterial('ID_Yeldalow', (1,1,0))
     cyan = makeMaterial('ID_Cyan', (0,1,1))
     magenta = makeMaterial('ID_Magenta', (1,0,1))
     rosa = makeMaterial('ID_Rosa', (1,0.5,0.5))
@@ -33,11 +39,9 @@ def run(origin):
     violet = makeMaterial('ID_Violet', (0.5,0,1))
     white = makeMaterial('ID_White', (1,1,1))
     grey = makeMaterial('ID_Grey', (0.5,0.5,0.5))
-    darkgrey = makeMaterial('ID_DarkGrey', (0.75,0.75,0.75))
-    darkgrey = makeMaterial('ID_Lightgrey', (0.25,0.25,0.25))
-    # Create red cube
-    #setMaterial(bpy.context.object, red)
-    #setMaterial(bpy.context.object, blue)
+    darkgrey = makeMaterial('ID_Lightgrey', (0.75,0.75,0.75))
+    darkgrey = makeMaterial('ID_DarkGrey', (0.25,0.25,0.25))
+
  
 if __name__ == "__main__":
     run((0,0,0))
