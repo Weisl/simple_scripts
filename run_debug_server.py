@@ -1,3 +1,4 @@
+""" no idea"""
 PYDEV_SOURCE_DIR = "C:/Users\Matthias/.p2/pool/plugins/org.python.pydev_5.1.1.201606162013/pysrc"
  
 import sys

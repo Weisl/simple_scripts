@@ -1,3 +1,4 @@
+"""scale all selected objects"""
 import bpy
 
 scaleVactor = 1;

@@ -1,3 +1,4 @@
+"""toggle the only render view"""
 import bpy
 if bpy.context.space_data.show_only_render == True:
     bpy.context.space_data.show_only_render =False

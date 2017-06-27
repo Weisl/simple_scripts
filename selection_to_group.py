@@ -1,4 +1,5 @@
-import bpy 
+"""add selected objects to group"""
+import bpy
 
 groupname = "wall_panelling_HP"
 

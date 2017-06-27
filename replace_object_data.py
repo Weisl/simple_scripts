@@ -1,4 +1,5 @@
-import bpy 
+"""replaces mesh data for all selected objects """
+import bpy
 
 
 new_data_name = "column_railing.011"

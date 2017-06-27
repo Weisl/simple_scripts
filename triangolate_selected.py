@@ -1,4 +1,5 @@
-import bpy 
+"""add triangulate modifier to every object"""
+import bpy
 
 for ob in bpy.context.selectable_objects:
     triangle = False

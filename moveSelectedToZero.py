@@ -1,3 +1,4 @@
+"""move selected object to zero"""
 import bpy
 for obj in bpy.context.selectable_objects:
     bpy.context.scene.objects.active = obj
