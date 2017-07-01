@@ -31,7 +31,13 @@ for obj in bpy.context.selected_objects:
                     material = mat
         else:
             material = makeMaterial(matName, (0.8,0.8,0.8))
+       
+        bpy.context.scene.objects.active = obj
             
+        for i in range(0,len(obj.material_slots)):
+            obj.active_material_index = 1
+            bpy.ops.object.material_slot_remove()
+          
         setMaterial(obj, material)
     
         
