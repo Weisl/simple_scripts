@@ -1,4 +1,5 @@
-import bpy 
+'''Create Material from objectname starting with "MI_", if the objectname starts with two big letters they will be replaced'''
+import bpy
 import re
 
 def makeMaterial(name, diffuse):
