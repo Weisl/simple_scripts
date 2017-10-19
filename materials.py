@@ -23,7 +23,11 @@ for mat in bpy.data.materials:
 
 
     #load BaseColor
-    textureFolder = "G:/01_Dropbox/Dropbox/projects/2017_veniceProject/020_Production/assets/cathedral/texturing/substance/"
+    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    rel_path = "../textures/"
+    textureFolder = os.path.join(script_dir, rel_path)
+    
+
     texBName = mat.name + "_B" + ".png"
     texNName = mat.name + "_N" + ".png"
     texRName = mat.name + "_R" + ".png"

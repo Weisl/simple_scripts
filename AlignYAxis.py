@@ -3,10 +3,10 @@
 
 import bpy
 
-objs = bpy.context.selected_objects 
+selected = bpy.context.selected_objects
 i= 0 
 dist = 0 
-for obj in objs:
+for obj in selected:
     obj.location.z = 0 
     obj.location.x = 0 
     
