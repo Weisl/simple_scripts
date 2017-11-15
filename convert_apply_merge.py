@@ -12,6 +12,8 @@ with open(filepath, 'rb') as file:
 """
 import bpy,bmesh
 
+selection = bpy.context.selected_objects.copy()
+
 def duplicateObject(ob):
     bpy.context.scene.objects.active = obj
     bpy.ops.object.select_all(action='DESELECT')
@@ -64,7 +66,12 @@ def get_children(ob, child_list):
 active_object = bpy.context.scene.objects.active
 mergedObject_list = []
 
-for obj in bpy.context.selected_objects:
+for obj in selection:
+    if obj.dupli_group == None:
+        bpy.context.scene.objects.active = obj
+        bpy.ops.object.duplicates_make_real(use_base_parent=True, use_hierarchy=False)
+
+for obj in selection:
     # only count objects without parent
     if obj.parent == None:
         dupli_list = []
@@ -79,8 +86,11 @@ for obj in bpy.context.selected_objects:
         scn.objects.link(mergedObject)
 
         child_list = []
-        child_list = get_children(obj,child_list)
+        child_list = get_children(obj, child_list)
         socket_list = []
+
+        # include linked Groups
+
 
         for obj in child_list:
             if obj.type in ['MESH', 'CURVE', 'SURFACE', 'META', 'FONT']:
