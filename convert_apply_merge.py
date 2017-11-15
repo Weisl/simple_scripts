@@ -15,27 +15,26 @@ import bpy,bmesh
 selection = bpy.context.selected_objects.copy()
 
 def duplicateObject(ob):
-    bpy.context.scene.objects.active = obj
+    bpy.context.scene.objects.active = ob
     bpy.ops.object.select_all(action='DESELECT')
-
+    #print ("1")
     me = ob.data # use current object's data
     me_copy = me.copy()
 
     new_ob = bpy.data.objects.new(ob.name + "_Copy", me_copy)
-    new_ob.matrix_world  = ob.matrix_world 
-    
+    new_ob.matrix_world  = ob.matrix_world
+    #print ("2")
 
-    bpy.ops.object.mode_set(mode = 'OBJECT')
-           
     scene = bpy.context.scene
     scene.objects.link(new_ob)
     scene.update()
-    
+    #print ("3")
+
     new_ob.select = True
     bpy.context.scene.objects.active = ob
     bpy.ops.object.make_links_data(type='MODIFIERS')
     bpy.ops.object.make_links_data(type='MATERIAL')
-    
+    #print ("4")
     return new_ob
 
 
@@ -69,7 +68,9 @@ mergedObject_list = []
 for obj in selection:
     if obj.dupli_group == None:
         bpy.context.scene.objects.active = obj
+        bpy.ops.object.make_local(type='ALL')
         bpy.ops.object.duplicates_make_real(use_base_parent=True, use_hierarchy=False)
+        bpy.ops.object.make_single_user(object=True, obdata=True, material=False, texture=False, animation=False)
 
 for obj in selection:
     # only count objects without parent
@@ -95,7 +96,7 @@ for obj in selection:
         for obj in child_list:
             if obj.type in ['MESH', 'CURVE', 'SURFACE', 'META', 'FONT']:
                 dupli_list.append(duplicateObject(obj))
-                print ("object " + obj.name)
+
             elif obj.type == 'EMPTY' and obj.name.startswith("socket_"):
                 empty = bpy.data.objects.new(obj.name.replace("socket", "SOCKET") ,None)
 
@@ -112,14 +113,9 @@ for obj in selection:
 
 
 
-
         for obj in dupli_list:
             obj.select = True
-            bpy.context.scene.objects.active = obj
-            bpy.ops.object.make_local(type='ALL')
-            bpy.ops.object.make_single_user(object=True, obdata=True, material=False, texture=False, animation=False)
-
-
+            print ("5")
             # convert spline
             if obj.type != 'MESH':
                 old_obj = obj
@@ -165,7 +161,9 @@ for obj in selection:
         mergedObject_list.append(mergedObject)
         bpy.ops.object.join()
 
+
         for socket_dic in socket_list:
+            #print ("6")
             socket = socket_dic["newSocket"]
             oldSocket = socket_dic["oldSocket"]
 
@@ -179,7 +177,9 @@ for obj in selection:
         bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
 
 
+
 for obj in mergedObject_list:
+    #print ("7")
     print ("entered " + obj.name)
     bpy.context.scene.objects.active = obj
 
