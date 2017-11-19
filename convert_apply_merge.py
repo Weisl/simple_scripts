@@ -20,8 +20,15 @@ def duplicateObject(ob):
     #print ("1")
     me = ob.data # use current object's data
     me_copy = me.copy()
+    me_copy.name = me.name + "_copy"
 
-    new_ob = bpy.data.objects.new(ob.name + "_Copy", me_copy)
+    if ob.name.startswith("ubx"):
+        newName = ob.name.replace("ubx", "UBX")
+        new_ob = bpy.data.objects.new(newName, me_copy)
+    else:
+        new_ob = bpy.data.objects.new(ob.name + "_Copy", me_copy)
+
+
     new_ob.matrix_world  = ob.matrix_world
     #print ("2")
 
@@ -34,6 +41,8 @@ def duplicateObject(ob):
     bpy.context.scene.objects.active = ob
     bpy.ops.object.make_links_data(type='MODIFIERS')
     bpy.ops.object.make_links_data(type='MATERIAL')
+
+
     #print ("4")
     return new_ob
 
@@ -62,6 +71,37 @@ def get_children(ob, child_list):
             child_list = child_list + get_children(ob_child, chidesChild_list)
     return child_list
 
+
+def convertToMesh(obj):
+    old_obj = obj
+
+    scene = bpy.context.scene
+    print (old_obj.name)
+
+    # create new data and obj
+    me = old_obj.to_mesh(scene, False, 'PREVIEW')
+    new_obj = bpy.data.objects.new(old_obj.name + "_new", me)
+    new_obj.matrix_world = old_obj.matrix_world
+    scene.objects.link(new_obj)
+
+    mod_obj = old_obj  # cube with mods
+    modable_obj = new_obj  # cube without mods
+
+    bpy.ops.object.select_all(action='DESELECT')
+
+    mod_obj.select = True
+    bpy.context.scene.objects.active = mod_obj
+    modable_obj.select = True
+
+    bpy.ops.object.make_links_data(type='MODIFIERS')
+    bpy.ops.object.select_all(action='DESELECT')
+
+    scene.objects.unlink(old_obj)
+    bpy.context.scene.objects.active = new_obj
+    applyMod(new_obj)
+
+    return new_obj
+
 active_object = bpy.context.scene.objects.active
 mergedObject_list = []
 
@@ -76,10 +116,12 @@ for obj in selection:
     # only count objects without parent
     if obj.parent == None:
         dupli_list = []
+        collision_list = []
 
         # new object
         me = bpy.data.meshes.new(obj.name + "_data")
         mergedObject = bpy.data.objects.new(obj.name + "_clone", me)
+        mergedObject.data.name = mergedObject.name + "data"
         mergedObject.location = obj.location
         mergedObject.rotation_euler = mergedObject.rotation_euler
 
@@ -95,7 +137,10 @@ for obj in selection:
 
         for obj in child_list:
             if obj.type in ['MESH', 'CURVE', 'SURFACE', 'META', 'FONT']:
-                dupli_list.append(duplicateObject(obj))
+                if obj.name.startswith("ubx"):
+                    collision_list.append(duplicateObject(obj))
+                else:
+                    dupli_list.append(duplicateObject(obj))
 
             elif obj.type == 'EMPTY' and obj.name.startswith("socket_"):
                 empty = bpy.data.objects.new(obj.name.replace("socket", "SOCKET") ,None)
@@ -111,48 +156,27 @@ for obj in selection:
                 socket_dic = {'oldSocket': obj, 'newSocket': empty}
                 socket_list.append(socket_dic)
 
-
+        for obj in collision_list:
+            obj.draw_type = 'WIRE'
+            if obj.type != 'MESH':
+                new_obj = convertToMesh(obj)
+                collision_list.append(new_obj)
+            else:
+                applyMod(obj)
 
         for obj in dupli_list:
             obj.select = True
-            print ("5")
             # convert spline
             if obj.type != 'MESH':
-                old_obj = obj
-
-                scene = bpy.context.scene
-                print (old_obj.name)
-
-                #create new data and obj
-                me = old_obj.to_mesh(scene, False, 'PREVIEW')
-                new_obj = bpy.data.objects.new(old_obj.name + "_new", me)
-                new_obj.matrix_world = old_obj.matrix_world
-                scene.objects.link(new_obj)
-
-                mod_obj = old_obj         # cube with mods
-                modable_obj = new_obj   # cube without mods
-
-                bpy.ops.object.select_all(action='DESELECT')
-
-                mod_obj.select = True
-                bpy.context.scene.objects.active = mod_obj
-                modable_obj.select = True
-
-                bpy.ops.object.make_links_data(type='MODIFIERS')
-                bpy.ops.object.select_all(action='DESELECT')
-
-
-                scene.objects.unlink(old_obj)
+                new_obj = convertToMesh(obj)
                 dupli_list.append(new_obj)
-
-                bpy.context.scene.objects.active = new_obj
-                obj = new_obj
-
-            applyMod(obj)
+            else:
+                applyMod(obj)
 
         bpy.ops.object.select_all(action='DESELECT')
         mergedLayer_list = [False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False]
 
+        # merge Objects
         for ob in dupli_list:
             ob.select = True
         bpy.context.scene.objects.active = mergedObject
@@ -174,9 +198,13 @@ for obj in selection:
             socket.select = True
             socket.layers = mergedLayer_list
         bpy.context.scene.layers[10] = True
+
+
+        for col in collision_list:
+            col.layers = mergedLayer_list
+            col.select = True
+
         bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
-
-
 
 for obj in mergedObject_list:
     #print ("7")
@@ -188,6 +216,7 @@ for obj in mergedObject_list:
     bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
     bpy.ops.uv.smart_project()
     bpy.ops.object.mode_set(mode='OBJECT')
+    obj.data.use_auto_smooth = True
     mergedObject.layers = mergedLayer_list
 
 

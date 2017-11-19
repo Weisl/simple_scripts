@@ -1,4 +1,5 @@
 """changes material location path"""
+
 import bpy
 
 activeOb = bpy.context.scene.objects.active 

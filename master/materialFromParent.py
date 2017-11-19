@@ -63,12 +63,13 @@ for obj in selectedObjects:
             child_list = get_children(obj,child_list)
 
             for child in child_list:
-                if child.type is not 'EMPTY':
+                if child.type == 'MESH' or child.type == 'CURVE' or child.type == 'SURFACE' or child.type == 'FONT' or child.type == 'META':
                     bpy.context.scene.objects.active = child
+
                     for i in range(0, len(obj.material_slots)):
                         obj.active_material_index = i
                         bpy.ops.object.material_slot_remove()
-
+                        print ("entered")
                     setMaterial(child, material)
 
 
