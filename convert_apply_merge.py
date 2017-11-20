@@ -10,9 +10,12 @@ with open(filepath, 'rb') as file:
     exec(compile(file.read(), filepath, 'exec'), global_namespace)
 
 """
+
 import bpy,bmesh
 
 selection = bpy.context.selected_objects.copy()
+mergedObject_list = []
+assetPre = "edit_"
 
 def duplicateObject(ob):
     bpy.context.scene.objects.active = ob
@@ -22,9 +25,10 @@ def duplicateObject(ob):
     me_copy = me.copy()
     me_copy.name = me.name + "_copy"
 
-    if ob.name.startswith("ubx"):
-        newName = ob.name.replace("ubx", "UBX")
-        new_ob = bpy.data.objects.new(newName, me_copy)
+    if ob.name.startswith("UBX") or ob.name.startswith("UCX") or ob.name.startswith("edit_UBX") or ob.name.startswith("edit_UCX"):
+        colName = ob.name
+        ob.name = assetPre + ob.name
+        new_ob = bpy.data.objects.new(colName, me_copy)
     else:
         new_ob = bpy.data.objects.new(ob.name + "_Copy", me_copy)
 
@@ -103,8 +107,8 @@ def convertToMesh(obj):
     return new_obj
 
 active_object = bpy.context.scene.objects.active
-mergedObject_list = []
 
+# Convert instanced Groups!
 for obj in selection:
     if obj.dupli_group == None:
         bpy.context.scene.objects.active = obj
@@ -118,10 +122,18 @@ for obj in selection:
         dupli_list = []
         collision_list = []
 
+        # save object names
+
+        if obj.name.startswith(assetPre):
+            assetName = obj.name.replace(assetPre, "")
+        else:
+            assetName = obj.name
+
+        obj.name = assetPre + assetName
+
         # new object
-        me = bpy.data.meshes.new(obj.name + "_data")
-        mergedObject = bpy.data.objects.new(obj.name + "_clone", me)
-        mergedObject.data.name = mergedObject.name + "data"
+        me = bpy.data.meshes.new(assetName + "_data")
+        mergedObject = bpy.data.objects.new(assetName, me)
         mergedObject.location = obj.location
         mergedObject.rotation_euler = mergedObject.rotation_euler
 
@@ -137,13 +149,15 @@ for obj in selection:
 
         for obj in child_list:
             if obj.type in ['MESH', 'CURVE', 'SURFACE', 'META', 'FONT']:
-                if obj.name.startswith("ubx"):
+                if obj.name.startswith("UBX") or obj.name.startswith("UCX"):
                     collision_list.append(duplicateObject(obj))
                 else:
                     dupli_list.append(duplicateObject(obj))
 
-            elif obj.type == 'EMPTY' and obj.name.startswith("socket_"):
-                empty = bpy.data.objects.new(obj.name.replace("socket", "SOCKET") ,None)
+            elif obj.type == 'EMPTY' and obj.name.startswith("SOCKET_"):
+                socketName = obj.name
+                obj.name = assetPre + socketName
+                empty = bpy.data.objects.new(socketName ,None)
 
                 scene = bpy.context.scene
                 scene.objects.link(empty)

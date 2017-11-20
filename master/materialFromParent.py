@@ -52,6 +52,7 @@ for obj in selectedObjects:
             objectname = re.sub('^[A-Z][A-Z]_', '', objectname)  # regex Cut Prefix Away
 
             matName = "MI_" + objectname
+            matName = matName.replace("edit_", "")
             # matName.replace('_LP', '_MAT')
 
             if matName in bpy.data.materials:

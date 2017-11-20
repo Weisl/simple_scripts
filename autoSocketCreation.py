@@ -23,7 +23,7 @@ activeObject = bpy.context.object
 bpy.ops.object.select_all(action='DESELECT')
 
 for obj in objects:
-    emptyName = "socket_" + obj.name
+    emptyName = "SOCKET_" + obj.name
     if emptyName not in bpy.data.objects:
         if (obj.type == 'MESH' or obj.type == 'EMPTY') and obj is not activeObject:
             empty = bpy.data.objects.new("empty", None)
