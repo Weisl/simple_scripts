@@ -7,8 +7,8 @@ def makeMaterial(name, diffuse):
     for mat in bpy.data.materials:
         if mat.name == name:
             b_mat_exists = True
-            
-    if b_mat_exists == False:     
+
+    if b_mat_exists == False:
         mat = bpy.data.materials.new(name)
         mat.diffuse_color = diffuse
     return mat
@@ -16,7 +16,6 @@ def makeMaterial(name, diffuse):
 def setMaterial(ob, mat):
     me = ob.data
     me.materials.append(mat)
-
 
 for obj in bpy.context.selected_objects:
     if obj.type == 'MESH':

@@ -2,9 +2,9 @@ import bpy
 import os
 
 bl_info = {
-    "name": "My Addon Name",
-    "description": "Single Line Explanation",
-    "author": "Your Name",
+    "name": "Custom Save",
+    "description": "Master Custom Save",
+    "author": "Matthias Patscheider",
     "version": (0, 0, 1),
     "blender": (2, 79, 0),
     "location": "View3D",
