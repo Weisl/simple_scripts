@@ -1,8 +1,8 @@
 import bpy
 
 bl_info = {
-    "name": "New Collider",
-    "author": "Your Name Here",
+    "name": "Collider Creator",
+    "author": "Matthias Patscheider",
     "version": (1, 0),
     "blender": (2, 75, 0),
     "location": "View3D > Add > Mesh > New Object",
@@ -11,8 +11,6 @@ bl_info = {
     "wiki_url": "",
     "category": "Add Mesh",
     }
-
-
 
 
 
@@ -39,10 +37,9 @@ def applyMod(obj):
 
 
 def add_object(self, context, vertices):
-
     verts = vertices
     edges = []
-    faces = [[0, 1, 2, 3],[7,6,5,4],[5,6,2,1],[4,7,3,0],[3,2,6,7],[4,5,1,0]]
+    faces = [[0, 1, 2, 3],[7,6,5,4],[5,6,2,1],[0,3,7,4],[3,2,6,7],[4,5,1,0]]
 
     mesh = bpy.data.meshes.new(name="Collider")
     mesh.from_pydata(verts, edges, faces)
@@ -51,8 +48,8 @@ def add_object(self, context, vertices):
     newObj = object_data_add(context, mesh, operator=self) # links to object instance
     return newObj.object
 
-def getBoundingBox(self,context):
-    return context.object.bound_box
+def getBoundingBox(self,context,obj):
+    return obj.bound_box
 
 def duplicateObject(ob):
     me = ob.data # use current object's data
@@ -73,37 +70,22 @@ def duplicateObject(ob):
     bpy.ops.object.make_links_data(type='MATERIAL')
     return new_ob
 
-def main(self,context, selectedObjects, colliderOb):
+def main(self,context,colliderOb):
     allObjects = bpy.data.objects
 
-    for obj in selectedObjects:
+    z = 0
+    for i, obj in enumerate(colliderOb):
         parName = obj.parent.name
-        collider = colliderOb
-        #collider = duplicateObject(obj)
-
-        for mod in collider.modifiers:
-            if mod.type == 'BEVEL' and self.my_bool == True:
-                collider.modifiers.remove(mod)
-            elif mod.type == 'SUBSURF' and self.my_bool2 == True:
-                collider.modifiers.remove(mod)
-
-
-        i = 1
-        endNumeration = ('%02d' % i)
+        endNumeration = ('%02d' % (i + z))
         newName = self.my_string + parName + "_" + endNumeration
+
         while (newName in allObjects):
-            endNumeration = ('%02d' % i)
+            endNumeration = ('%02d' % (i + z))
             newName = self.my_string + parName + "_" + endNumeration
-            i = i + 1
+            z += 1
 
-        applyMod(collider)
-        collider.name = newName
-        collider.draw_type = 'WIRE'
-
-        collider.select = True
-
-        bpy.context.scene.objects.active = obj.parent
-        bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
+        obj.name = newName
+        obj.draw_type = 'WIRE'
 
 
 
@@ -123,19 +105,34 @@ class OBJECT_OT_add_object(Operator, AddObjectHelper):
 
     @classmethod
     def poll(cls, context):
-        if context.active_object is not None and context.active_object.parent is not None:
-            return True
-        else: # no object is active or object has no parent:
+        for obj in bpy.context.selected_objects:
+            if obj.parent is None:
+                return False
+        if context.active_object is None:
             return False
+        return True
+
 
     def execute(self, context):
         activeObject = bpy.context.object
         selectedObjects = bpy.context.selected_objects.copy()
+        colliderOb = []
 
-        vertices = getBoundingBox(self,context)
-        colliderOb = add_object(self, context, vertices)
-        main(self, context,selectedObjects,colliderOb)
-        alignObjects(colliderOb, activeObject)
+
+        for i, obj in enumerate(selectedObjects):
+            bBox = getBoundingBox(self,context,obj)
+            newCollider = add_object(self, context, bBox)
+            alignObjects(newCollider, obj)
+
+            bpy.context.scene.objects.active = obj.parent
+            newCollider.select = True
+
+            bpy.ops.object.parent_set(type='OBJECT', keep_transform=True)
+
+            colliderOb.append(newCollider)
+
+        main(self, context,colliderOb)
+
         return {'FINISHED'}
 
 

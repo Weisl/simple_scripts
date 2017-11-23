@@ -2,10 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577a19de-78fe-48e5-b72c-044ad6b509c0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/00_exec.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generateCollision_2.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/assets.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/collider.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/convertApplyMerge.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/func.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/panel.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/00_exec.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CustomSave.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Delete_all_not_active_UV_Sets.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Group_Each_selected_Mesh_obj.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Group_Each_selected_obj.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Group_Name_Active.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NoNodeMaterial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/addObj_boundingBox.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignObjectIndey.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deleteVertexColor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deleteVertexGroups.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deselect_empties.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/display_ShowWire_of_objects.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/display_toggleOnlyRender.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/display_toggleWireframes.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dupli.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/export_csvAssetList.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/functions_mat.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/generateCollision.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/generateCollision_2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/group_selection.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/imagePath.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/imagePath_02.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lightpack_selectedStupid.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/master_createSockets.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/material/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/material/developer_utils.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materialAssignTo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materialFromObjectname.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materialFromParent.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materials.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materials2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materials_createIDColors.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/materials_deleteAll.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeCorrection.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/object_customParent.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/object_moveToCenter.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/object_parentEmpty.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/object_random_rotate_90.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/object_triangolateModifier.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/objects_alignYaxis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pipeline.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pipeline2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/replaceImagePath.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/replace_object_data.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scale_all.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/selected_to_active_cam.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/__init__.py" afterPath="$PROJECT_DIR$/MasterAddon/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addObj_boundingBox.py" afterPath="$PROJECT_DIR$/addObj_boundingBox.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,51 +66,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="deleteVertexColor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deleteVertexColor.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MasterAddon/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="45" />
+            <state relative-caret-position="465">
+              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="e#1049#1059#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assets.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MasterAddon/assets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display_ShowWire_of_objects.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_ShowWire_of_objects.py">
+      <file leaf-file-name="collider.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MasterAddon/collider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="display_toggleOnlyRender.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_toggleOnlyRender.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="display_toggleWireframes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_toggleWireframes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="00_exec.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/00_exec.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="14" column="66" lean-forward="true" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+            <state relative-caret-position="696">
+              <caret line="48" column="85" lean-forward="false" selection-start-line="48" selection-start-column="85" selection-end-line="48" selection-end-column="85" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -68,53 +100,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
+      <file leaf-file-name="func.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MasterAddon/func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addObj_boundingBox.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addObj_boundingBox.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="812">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="479">
+              <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
               <folding>
-                <element signature="e#292#302#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generateCollision_2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/generateCollision_2.py">
+      <file leaf-file-name="convertApplyMerge.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MasterAddon/convertApplyMerge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="134" column="15" lean-forward="false" selection-start-line="134" selection-start-column="15" selection-end-line="134" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="186">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generateCollision.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generateCollision.py">
+      <file leaf-file-name="panel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MasterAddon/panel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dupli.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dupli.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+            <state relative-caret-position="448">
+              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -131,37 +145,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>un</find>
-      <find>layers</find>
-      <find>duplicate</find>
-      <find>merged</find>
-      <find>duplica</find>
+      <find>al</find>
+      <find>UBX</find>
       <find>layer</find>
-      <find>mergedLayer_list</find>
-      <find>mergedObject_list</find>
-      <find>get_children</find>
-      <find>copy</find>
-      <find>ob</find>
-      <find>mode_set</find>
-      <find>selection</find>
-      <find>setMaterial</find>
-      <find>Socket</find>
-      <find>selec</find>
+      <find>location</find>
+      <find>SOCKET</find>
+      <find>dupli</find>
+      <find>my_bool</find>
+      <find>main</find>
+      <find>collider</find>
+      <find>renameCollider</find>
+      <find>asset_ty</find>
+      <find>10</find>
+      <find>Asset</find>
+      <find>UCX</find>
+      <find>my_string</find>
+      <find>duplica</find>
+      <find>ops</find>
+      <find>duplicateObject</find>
+      <find>new</find>
       <find>select</find>
-      <find>ob.name</find>
-      <find>&quot;old_&quot;</find>
-      <find>assetPre</find>
-      <find>parent</find>
-      <find>beginning</find>
-      <find>old</find>
-      <find>asset</find>
-      <find>collision_list</find>
-      <find>object_data_add</find>
-      <find>print</find>
-      <find>add_objec</find>
-      <find>UBC</find>
-      <find>my</find>
+      <find>selection</find>
+      <find>dup</find>
+      <find>selecte</find>
+      <find>selected</find>
+      <find>selec</find>
+      <find>selection =</find>
+      <find>selection =</find>
+      <find>duplicate</find>
+      <find>dupl</find>
+      <find>selection</find>
     </findStrings>
+    <replaceStrings>
+      <replace>print</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\weisl\Documents\GitHub\mp_mini_script_utils\MasterAddon</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -201,16 +221,26 @@
         <option value="$PROJECT_DIR$/assignObjectIndey.py" />
         <option value="$PROJECT_DIR$/exec.py" />
         <option value="$PROJECT_DIR$/00_exec.py" />
-        <option value="$PROJECT_DIR$/addObj_boundingBox.py" />
         <option value="$PROJECT_DIR$/generateCollision.py" />
+        <option value="$PROJECT_DIR$/master_createSockets.py" />
         <option value="$PROJECT_DIR$/generateCollision_2.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/developer_utils.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/assets.py" />
+        <option value="$PROJECT_DIR$/addObj_boundingBox.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/master_convertApplyMerge.py" />
+        <option value="$PROJECT_DIR$/master_convertApplyMerge.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/collider.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/__init__.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/panel.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/func.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/convertApplyMerge.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1180" />
+    <option name="x" value="-1689" />
     <option name="y" value="-9" />
-    <option name="width" value="1165" />
+    <option name="width" value="1698" />
     <option name="height" value="1028" />
   </component>
   <component name="ProjectView">
@@ -228,6 +258,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,19 +266,27 @@
               <item name="mp_mini_script_utils" type="b2602c69:ProjectViewProjectNode" />
               <item name="mp_mini_script_utils" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mp_mini_script_utils" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mp_mini_script_utils" type="462c0819:PsiDirectoryNode" />
+              <item name="MasterAddon" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mp_export_panel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\weisl\Documents\GitHub\mp_mini_script_utils\MasterAddon" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\weisl\Documents\GitHub\mp_mini_script_utils\MasterAddon" />
       <recent name="C:\Users\Weisl Laptop\Documents\GitHub\mp_mini_script_utils\material" />
     </key>
   </component>
@@ -349,25 +388,45 @@
     <frame x="-1689" y="-9" width="1698" height="1028" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15595238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17268623" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17268623" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17268623" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15595238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -377,33 +436,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/material/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4719">
-          <caret line="164" column="47" lean-forward="false" selection-start-line="164" selection-start-column="47" selection-end-line="164" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/master/materialFromObjectname.py" />
-    <entry file="file://$PROJECT_DIR$/deleteVertexGroups.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wire.py" />
-    <entry file="file://$PROJECT_DIR$/triangolate_selected.py" />
-    <entry file="file://$PROJECT_DIR$/toggle_onlyRender.py" />
-    <entry file="file://$PROJECT_DIR$/ShowWire_of_objects.py" />
-    <entry file="file://$PROJECT_DIR$/selection_to_group.py" />
-    <entry file="file://$PROJECT_DIR$/replace_object_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="46" lean-forward="false" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/random_rotate_90.py" />
     <entry file="file://$PROJECT_DIR$/pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -501,13 +533,6 @@
     <entry file="file://$PROJECT_DIR$/master/materialFromParent.py" />
     <entry file="file://$PROJECT_DIR$/boundingBox.py" />
     <entry file="file://$PROJECT_DIR$/convert_apply_merge.py" />
-    <entry file="file://$PROJECT_DIR$/scale_all.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/replaceImagePath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -522,18 +547,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/selected_to_active_cam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignObjectIndey.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -541,7 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,7 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -565,7 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -593,6 +606,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/00_exec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generateCollision.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master_createSockets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1612">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -601,39 +638,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/00_exec.py">
+    <entry file="file://$PROJECT_DIR$/scale_all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="14" column="66" lean-forward="true" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addObj_boundingBox.py">
+    <entry file="file://$PROJECT_DIR$/selected_to_active_cam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding>
-            <element signature="e#292#302#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generateCollision.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generateCollision_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="134" column="15" lean-forward="false" selection-start-line="134" selection-start-column="15" selection-end-line="134" selection-end-column="15" />
+        <state relative-caret-position="1285">
+          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addObj_boundingBox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/developer_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oldold.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/assets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="e#1049#1059#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/panel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/collider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="48" column="85" lean-forward="false" selection-start-line="48" selection-start-column="85" selection-end-line="48" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/convertApplyMerge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
