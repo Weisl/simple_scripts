@@ -6,6 +6,11 @@ from bpy_extras.object_utils import AddObjectHelper, object_data_add
 def alignObjects(new, old):
     new.matrix_world = old.matrix_world
 
+def customParent(new, old):
+    new.parent = old.parent
+    new.matrix_local = old.matrix_local
+
+
 
 def applyMod(obj):
     bpy.ops.object.select_all(action='DESELECT')
