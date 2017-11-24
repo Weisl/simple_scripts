@@ -1,7 +1,7 @@
 import bpy
 from bpy.types import Operator
 from bpy_extras.object_utils import AddObjectHelper, object_data_add
-from .assets import colliderEnum
+from .assets import colliderEnum, ColliderAsset
 
 from .func import *
 

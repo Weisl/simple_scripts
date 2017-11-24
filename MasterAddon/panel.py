@@ -19,10 +19,9 @@ class LayoutDemoPanel(bpy.types.Panel):
 
 
         row = layout.row()
-        row.label("Asset manager")
-        row.label("Todo Convert to asst")
-        row.label("Create new Asset")
-
+        row.label("Sockets ")
+        row = layout.row()
+        row.operator("master.socket_create")
 
         row = layout.row()
         row.label("Collider")
@@ -32,6 +31,10 @@ class LayoutDemoPanel(bpy.types.Panel):
         row = layout.row()
         row.operator("mesh.add_collider", text = "Convert To Collider").my_convert = True
 
+        row = layout.row()
+        row.label("Material")
+        row = layout.row()
+        row.operator("master.assign_material")
         # Create an row where the buttons are aligned to each other.
         # layout.label(text=" Aligned Row:")
 
@@ -53,3 +56,12 @@ class LayoutDemoPanel(bpy.types.Panel):
         #col.label(text="Column Two:")
         #col.prop(scene, "frame_start")
         #col.prop(scene, "frame_end")
+        row = layout.row()
+        row.label("AssetManagement")
+
+        row = layout.row()
+        row.operator("master.asset_create")
+        row = layout.row()
+        row.label("Asset manager")
+        row.label("Todo Convert to asst")
+        row.label("Create new Asset")

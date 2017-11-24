@@ -42,6 +42,8 @@ class converApplyMerge(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
+    my_autoSmooth = bpy.props.FloatProperty(name="Auto Smooth Angle", default=15)
+
     @classmethod
     def poll(cls, context):
         return bpy.context.scene.objects.active
@@ -59,6 +61,9 @@ def main(self,context):
     duplicateSuffix = "_dupl"
 
 
+    mergedLayer_list = [False, False, False, False, False, False, False, False, False, False, True, False, False, False,
+                        False, False, False, False, False, False]
+
     # Convert instanced Groups!
     for obj in selection:
         if obj.dupli_group == None:
@@ -73,7 +78,6 @@ def main(self,context):
         # only count objects without parent
         if obj.parent == None:
             dupli_list = []
-            collision_list = []
 
             # save object names
 
@@ -96,7 +100,6 @@ def main(self,context):
             child_list = []
             child_list = get_children(obj, child_list)
 
-            socket_list = []
 
             # include linked Groups
 
@@ -111,6 +114,9 @@ def main(self,context):
                         objCollision = duplicateObject(obj, duplicateSuffix)
                         if obj.type != 'MESH':
                             objCollision = convertToMesh(obj)
+                        else:
+                            applyMod(obj)
+
 
                         oldObjectname = obj.name
 
@@ -118,9 +124,9 @@ def main(self,context):
                             obj.name = obj.name + assetSuffix
                         objCollision.name = oldObjectname.replace(assetSuffix, "")
                         objCollision.parent = mergedObject
-                        obj.matrix_local = obj.matrix_local
+                        objCollision.matrix_local = obj.matrix_local
                         objCollision.draw_type = 'WIRE'
-                        collision_list.append(objCollision)
+                        objCollision.layers = mergedLayer_list
 
 
 
@@ -140,17 +146,9 @@ def main(self,context):
 
                     empty.parent = mergedObject
                     empty.matrix_local = obj.matrix_local
-
+                    empty.layers = mergedLayer_list
                     socket_dic = {'oldSocket': obj, 'newSocket': empty}
-                    socket_list.append(socket_dic)
 
-            #for obj in collision_list:    # if collision is not a mesh!!!!!!!
-            #    obj.draw_type = 'WIRE'
-            #    if obj.type != 'MESH':
-            #        new_obj = convertToMesh(obj)
-            #        collision_list.append(new_obj)
-            #    else:
-            #        applyMod(obj)
 
 
             for obj in dupli_list:
@@ -171,18 +169,22 @@ def main(self,context):
 
 
     #bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
-    mergedLayer_list = [False, False, False, False, False, False, False, False, False, False, True, False, False, False,
-                        False, False, False, False, False, False]
+
 
     for obj in mergedObject_list:
 
         bpy.context.scene.objects.active = obj
+        obj.select = True
+
         bpy.ops.object.mode_set(mode='EDIT')
+        bpy.ops.mesh.reveal()
         bpy.ops.mesh.select_all(action='SELECT')
         bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
         bpy.ops.uv.smart_project()
         bpy.ops.object.mode_set(mode='OBJECT')
         obj.data.use_auto_smooth = True
+        obj.data.auto_smooth_angle = self.my_autoSmooth
+
         mergedObject.layers = mergedLayer_list
 
 
