@@ -1,6 +1,39 @@
 import bpy,bmesh
 
 from .func import applyMod, duplicateObject, get_children, convertToMesh
+from .assets import colliderEnum
+
+def getActiveSelected ():
+    oldActive = bpy.context.scene.objects.active
+    oldSelection = bpy.context.selected_objects.copy()
+    return oldActive, oldSelection
+
+def setActiveSelected (oldActive, oldSelection):
+    bpy.context.scene.objects.active = oldActive
+    for obj in bpy.data.objects:
+        obj.select = False
+    for ob in oldSelection:
+        ob.select = True
+
+
+def mergeObjects(mergeTarget, mergeSelection):
+    oldActive, oldSelection = getActiveSelected()
+
+    print("MERGE SELECTION " + str(mergeSelection))
+    bpy.context.scene.objects.active = mergeTarget
+
+    for obj in bpy.data.objects:
+        obj.select = False
+
+    mergeTarget.select = True
+    for ob in mergeSelection:
+        ob.select = True
+
+    bpy.ops.object.join()
+
+    setActiveSelected(oldActive, oldSelection)
+    return mergeTarget
+
 
 
 class converApplyMerge(bpy.types.Operator):
@@ -22,7 +55,9 @@ def main(self,context):
     active_object = bpy.context.scene.objects.active
 
     mergedObject_list = []
-    assetPre = "edit_"
+    assetSuffix = "_edit"
+    duplicateSuffix = "_dupl"
+
 
     # Convert instanced Groups!
     for obj in selection:
@@ -32,6 +67,8 @@ def main(self,context):
             bpy.ops.object.duplicates_make_real(use_base_parent=True, use_hierarchy=False)
             bpy.ops.object.make_single_user(object=True, obdata=True, material=False, texture=False, animation=False)
 
+
+
     for obj in selection:
         # only count objects without parent
         if obj.parent == None:
@@ -40,12 +77,12 @@ def main(self,context):
 
             # save object names
 
-            if obj.name.startswith(assetPre):
-                assetName = obj.name.replace(assetPre, "")
+            if obj.name.endswith(assetSuffix):
+                assetName = obj.name.replace(assetSuffix, "")
             else:
                 assetName = obj.name
 
-            obj.name = assetPre + assetName
+            obj.name = assetName + assetSuffix
 
             # new object
             me = bpy.data.meshes.new(assetName + "_data")
@@ -58,45 +95,65 @@ def main(self,context):
 
             child_list = []
             child_list = get_children(obj, child_list)
+
             socket_list = []
 
             # include linked Groups
 
 
-            for obj in child_list:
+            for obj in child_list:                                          # works
                 if obj.type in ['MESH', 'CURVE', 'SURFACE', 'META', 'FONT']:
-                    if obj.name.startswith("UBX") or obj.name.startswith("UCX") or obj.name.startswith("edit_UBX") or obj.name.startswith("edit_UCX"):
-                        collision_list.append(duplicateObject(obj))
-                    else:
-                        dupli_list.append(duplicateObject(obj))
+                    if obj.name.startswith(tuple(colliderEnum.getTuple())) == False:
+                        newObj = duplicateObject(obj, duplicateSuffix)
+                        dupli_list.append(newObj)
 
-                elif obj.type == 'EMPTY' and obj.name.startswith("SOCKET_") or obj.name.startswith("edit_SOCKET_"):
-                    socketName = obj.name
-                    socketName = socketName.replace("edit_","")
-                    obj.name = assetPre + socketName
+                    else:           ##### collider ####
+                        objCollision = duplicateObject(obj, duplicateSuffix)
+                        if obj.type != 'MESH':
+                            objCollision = convertToMesh(obj)
+
+                        oldObjectname = obj.name
+
+                        if obj.name.endswith(assetSuffix) == False:
+                            obj.name = obj.name + assetSuffix
+                        objCollision.name = oldObjectname.replace(assetSuffix, "")
+                        objCollision.parent = mergedObject
+                        obj.matrix_local = obj.matrix_local
+                        objCollision.draw_type = 'WIRE'
+                        collision_list.append(objCollision)
+
+
+
+                elif obj.type == 'EMPTY' and obj.name.startswith("SOCKET_"): ##### socket #####
+                    socketName = obj.name                           #new socket name
+                    socketName = socketName.replace(assetSuffix,"")
+
+                    obj.name = socketName + assetSuffix             # old socket name
+
                     empty = bpy.data.objects.new(socketName ,None)
 
-                    scene = bpy.context.scene
+                    scene = bpy.context.scene                       # append to scene
                     scene.objects.link(empty)
 
-                    empty.location = (0,0,0)
-                    empty.rotation_euler = obj.rotation_euler
-                    empty.scale = obj.scale
                     empty.empty_draw_type = obj.empty_draw_type
                     empty.empty_draw_size = obj.empty_draw_size
+
+                    empty.parent = mergedObject
+                    empty.matrix_local = obj.matrix_local
+
                     socket_dic = {'oldSocket': obj, 'newSocket': empty}
                     socket_list.append(socket_dic)
 
-            for obj in collision_list:
-                obj.draw_type = 'WIRE'
-                if obj.type != 'MESH':
-                    new_obj = convertToMesh(obj)
-                    collision_list.append(new_obj)
-                else:
-                    applyMod(obj)
+            #for obj in collision_list:    # if collision is not a mesh!!!!!!!
+            #    obj.draw_type = 'WIRE'
+            #    if obj.type != 'MESH':
+            #        new_obj = convertToMesh(obj)
+            #        collision_list.append(new_obj)
+            #    else:
+            #        applyMod(obj)
+
 
             for obj in dupli_list:
-                obj.select = True
                 # convert spline
                 if obj.type != 'MESH':
                     new_obj = convertToMesh(obj)
@@ -104,42 +161,22 @@ def main(self,context):
                 else:
                     applyMod(obj)
 
-            bpy.ops.object.select_all(action='DESELECT')
-            mergedLayer_list = [False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False]
-
+            print("DUPLICATE LIST " + str(dupli_list))
             # merge Objects
-            for ob in dupli_list:
-                ob.select = True
-            bpy.context.scene.objects.active = mergedObject
-            mergedObject.select = True
+            for lyr in bpy.context.scene.layers:
+                lyr = True
 
-            mergedObject_list.append(mergedObject)
-            bpy.ops.object.join()
+            print("MERGED OBJECTS " + str(mergedObject))
+            mergedObject_list.append(mergeObjects(mergedObject, dupli_list))
 
 
-            for socket_dic in socket_list:
-                print ("6")
-                socket = socket_dic["newSocket"]
-                oldSocket = socket_dic["oldSocket"]
-
-                socket.matrix_world = oldSocket.matrix_world
-
-                socket.select = True
-                socket.layers = mergedLayer_list
-            bpy.context.scene.layers[10] = True
-
-
-            for col in collision_list:
-                col.layers = mergedLayer_list
-                col.select = True
-
-            bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
+    #bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
+    mergedLayer_list = [False, False, False, False, False, False, False, False, False, False, True, False, False, False,
+                        False, False, False, False, False, False]
 
     for obj in mergedObject_list:
-        print ("7")
-        print ("entered " + obj.name)
-        bpy.context.scene.objects.active = obj
 
+        bpy.context.scene.objects.active = obj
         bpy.ops.object.mode_set(mode='EDIT')
         bpy.ops.mesh.select_all(action='SELECT')
         bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')

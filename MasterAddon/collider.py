@@ -1,7 +1,7 @@
 import bpy
 from bpy.types import Operator
 from bpy_extras.object_utils import AddObjectHelper, object_data_add
-from .assets import ColliderAsset
+from .assets import colliderEnum
 
 from .func import *
 
@@ -25,9 +25,6 @@ def renameCollider(self,context,colliderOb):
         obj.draw_type = 'WIRE'
 
 
-
-
-
 class OBJECT_OT_addCollider(Operator, AddObjectHelper):
     """Create a new Mesh Object"""
     bl_idname = "mesh.add_collider"
@@ -37,16 +34,12 @@ class OBJECT_OT_addCollider(Operator, AddObjectHelper):
     my_convert = bpy.props.BoolProperty(name="Replace Old", default=False)
     my_float = bpy.props.FloatProperty(name="InflateColission",  default= -0.5)
     my_string = bpy.props.EnumProperty(
-        items=(('UBX', "UBX", "Boxes are created with the Box objects type in Max or with the Cube polygonal primitive in Maya. You cannot move the vertices around or deform it in any way to make it something other than a rectangular prism, or else it will not work."),
-               ('UCP', "UCP", "Capsules are created with the Capsule object type. The capsule does not need to have many segments (8 is a good number) at all because it is converted into a true capsule for collision. Like boxes, you should not move the individual vertices around."),
-               ('USP', "USP", "Spheres are created with the Sphere object type. The sphere does not need to have many segments (8 is a good number) at all because it is converted into a true sphere for collision. Like boxes, you should not move the individual vertices around."),
-               ('UCX', "UCX", "Convex objects can be any completely closed convex 3D shape. For example, a box can also be a convex object. The diagram below illustrates what is "),
-               ),
+        items=colliderEnum.items,
         name="Collision Type",
         default = 'UBX',
         description="",
         )
-    my_replace = bpy.props.StringProperty(name="Colission Prefix", default = "edit_")
+    #my_replace = bpy.props.StringProperty(name="Colission Post", default = "_edit")
     my_deleteBevel = bpy.props.BoolProperty(name="Delete Bevel", default=False)
     my_deleteSubsurf = bpy.props.BoolProperty(name="Delete Subsurf", default=True)
 
@@ -69,7 +62,7 @@ class OBJECT_OT_addCollider(Operator, AddObjectHelper):
         for i, obj in enumerate(selectedObjects):
             if self.my_convert == False:
                 bBox = getBoundingBox(self,context,obj)         # create BoundingBox object for collider
-                newCollider = add_object(self, context, bBox)
+                newCollider = add_object(self, context, bBox, obj.name + "_collider")
                 alignObjects(newCollider, obj)
                 newCollider.parent = obj.parent  # parent object oriented
                 newCollider.matrix_local = obj.matrix_local
@@ -87,8 +80,6 @@ class OBJECT_OT_addCollider(Operator, AddObjectHelper):
                             obj.modifiers.remove(mod)
                         else:
                             mod.levels = 1
-
-
 
             mod = newCollider.modifiers.new(name="ColliderOffset_disp", type='DISPLACE')
             mod.strength = self.my_float
