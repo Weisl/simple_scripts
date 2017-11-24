@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577a19de-78fe-48e5-b72c-044ad6b509c0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/createAsset.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/funcMat.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/materialAssign.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MasterAddon/sockets.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MasterAddon/collider.py" afterPath="$PROJECT_DIR$/MasterAddon/collider.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MasterAddon/convertApplyMerge.py" afterPath="$PROJECT_DIR$/MasterAddon/convertApplyMerge.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MasterAddon/panel.py" afterPath="$PROJECT_DIR$/MasterAddon/panel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,8 +59,8 @@
       <file leaf-file-name="convertApplyMerge.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MasterAddon/convertApplyMerge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="179" column="29" lean-forward="false" selection-start-line="179" selection-start-column="29" selection-end-line="179" selection-end-column="29" />
+            <state relative-caret-position="708">
+              <caret line="190" column="0" lean-forward="true" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -107,8 +101,8 @@
       <file leaf-file-name="func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MasterAddon/func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="16" />
+            <state relative-caret-position="407">
+              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -139,13 +133,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dupli</find>
       <find>duplica</find>
       <find>assetSu</find>
       <find>duplic</find>
       <find>dupl</find>
       <find>suffix</find>
-      <find>layer</find>
       <find>empty</find>
       <find>socket_dic</find>
       <find>add_object</find>
@@ -169,6 +161,8 @@
       <find>AssetName</find>
       <find>socketS</find>
       <find>auto</find>
+      <find>layer</find>
+      <find>mergedLayer_list</find>
     </findStrings>
     <replaceStrings>
       <replace>assetSuffix</replace>
@@ -215,12 +209,12 @@
         <option value="$PROJECT_DIR$/generateCollision.py" />
         <option value="$PROJECT_DIR$/convert_apply_merge.py" />
         <option value="$PROJECT_DIR$/MasterAddon/collider.py" />
-        <option value="$PROJECT_DIR$/MasterAddon/func.py" />
         <option value="$PROJECT_DIR$/MasterAddon/naming.py" />
         <option value="$PROJECT_DIR$/MasterAddon/assets.py" />
         <option value="$PROJECT_DIR$/MasterAddon/panel.py" />
         <option value="$PROJECT_DIR$/MasterAddon/funcMat.py" />
         <option value="$PROJECT_DIR$/MasterAddon/materialAssign.py" />
+        <option value="$PROJECT_DIR$/MasterAddon/func.py" />
         <option value="$PROJECT_DIR$/MasterAddon/convertApplyMerge.py" />
       </list>
     </option>
@@ -706,16 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MasterAddon/func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MasterAddon/panel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -776,10 +760,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MasterAddon/func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MasterAddon/convertApplyMerge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="179" column="29" lean-forward="false" selection-start-line="179" selection-start-column="29" selection-end-line="179" selection-end-column="29" />
+        <state relative-caret-position="708">
+          <caret line="190" column="0" lean-forward="true" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>

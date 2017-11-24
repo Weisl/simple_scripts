@@ -185,7 +185,7 @@ def main(self,context):
         obj.data.use_auto_smooth = True
         obj.data.auto_smooth_angle = self.my_autoSmooth
 
-        mergedObject.layers = mergedLayer_list
+        obj.layers = mergedLayer_list
 
 
 
