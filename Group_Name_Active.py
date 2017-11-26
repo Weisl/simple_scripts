@@ -1,4 +1,5 @@
-"""changes material location path"""
+"""
+"""
 
 import bpy
 
