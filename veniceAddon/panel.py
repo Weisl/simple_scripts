@@ -16,9 +16,6 @@ class LayoutDemoPanel(bpy.types.Panel):
         wm = bpy.context.window_manager
         row.prop(wm, "csv_dir")
 
-
-
-
         row = layout.row()
         row.label("Change File Extensions")
         row = layout.row()
