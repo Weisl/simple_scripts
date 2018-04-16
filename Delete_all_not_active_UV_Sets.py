@@ -1,28 +1,25 @@
 """deletes all not active UV sets"""
-
 import bpy
-for obj in bpy.context.selected_objects:
+
+selected = bpy.context.selected_objects.copy()
+
+for obj in selected:
 
     if obj.type == 'MESH':
         bpy.context.scene.objects.active = obj
+        uvActive = obj.data.uv_textures.active
+        texSetList = list(obj.data.uv_textures)
 
-        uvIndex = obj.data.uv_textures.active_index
+        for tex in texSetList:
+            if tex != uvActive:
+                try:
+                    obj.data.uv_textures.remove(tex)
+                    print ("Deleted %s on object %s" % (str(tex), obj.name))
 
-        removeSet = []
-        properUv = None
-
-        for i, tex in enumerate(obj.data.uv_textures):
-            if i != uvIndex:
-                removeSet.append(tex)
+                except Exception:
+                    print ("couldn't delete textuteset %s on object %s" % (str(tex), obj.name))
             else:
-                properUv = tex
-
-        for tex in removeSet:
-            bpy.context.object.data.uv_textures.active = tex
-            bpy.ops.mesh.uv_texture_remove()
-
-        if properUv is not None:
-            properUv.name = "UVMap"
+                print ("LOL")
 
 
 
