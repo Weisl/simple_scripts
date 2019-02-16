@@ -1,0 +1,8 @@
+import bpy
+selectedO = bpy.context.selected_objects.copy()
+
+for obj in selectedO:
+    world = obj.matrix_world
+    obj.parent = obj.parent.parent
+    obj.matrix_world = world
+    
