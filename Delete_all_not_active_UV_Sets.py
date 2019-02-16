@@ -6,7 +6,7 @@ selected = bpy.context.selected_objects.copy()
 for obj in selected:
 
     if obj.type == 'MESH':
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
         uvActive = obj.data.uv_textures.active
         texSetList = list(obj.data.uv_textures)
 

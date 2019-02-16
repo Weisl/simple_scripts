@@ -7,7 +7,7 @@ oldActive = bpy.context.active_object
 lightmapName = 'lightmap'
 
 for obj in bpy.context.selectable_objects:
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
     if obj.type == 'MESH':
         if 'lightmap' not in obj.data.uv_textures:
             bpy.ops.mesh.uv_texture_add()

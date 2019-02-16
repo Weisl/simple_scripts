@@ -65,7 +65,7 @@ for obj in selectedObjects:
 
             for child in child_list:
                 if child.type == 'MESH' or child.type == 'CURVE' or child.type == 'SURFACE' or child.type == 'FONT' or child.type == 'META':
-                    bpy.context.scene.objects.active = child
+                    bpy.context.view_layer.objects.active = child
 
                     for i in range(0, len(obj.material_slots)):
                         obj.active_material_index = i
