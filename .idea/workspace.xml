@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577a19de-78fe-48e5-b72c-044ad6b509c0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/00_BevelWeight.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_SharpToBevel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_addLightmapUv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_groupByInstance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_nonUniformScalled.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_select_NgonObjects.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_select_WeightedNoSharp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00_select_withModifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InnerspaceAddon.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SwitchUV.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialFromObjectname.py" beforeDir="false" afterPath="$PROJECT_DIR$/materialFromObjectname.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +13,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/00_select_NgonObjects.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Delete_all_not_active_UV_Sets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="75">
               <caret line="3" selection-start-line="3" selection-end-line="22" />
             </state>
           </provider>
@@ -39,11 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/00_SharpToBevel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="75">
               <caret line="3" selection-start-line="3" selection-end-line="25" />
-              <folding>
-                <element signature="e#31#41#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -53,23 +35,22 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InnerspaceAddon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="60" column="31" lean-forward="true" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+            <state relative-caret-position="1383">
+              <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/materialFromObjectname.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#73#345#0" />
-                <element signature="e#79#422#0" />
-                <element signature="e#303#344#0" />
-                <element signature="e#60#332#0" />
-                <element signature="e#866#1138#0" />
-                <element signature="e#135#407#0" />
-                <element signature="e#5564#5836#0" />
-                <element signature="e#6415#7218#0" />
-                <element signature="e#7272#7544#0" />
-                <element signature="e#9626#10071#0" />
+                <element signature="e#127#137#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/veniceAddon/panel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="150">
               <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="29" />
             </state>
           </provider>
@@ -87,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/00_addLightmapUv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="75">
               <caret line="3" selection-start-line="3" selection-end-line="22" selection-end-column="14" />
             </state>
           </provider>
@@ -179,7 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/selection_to_group.py" />
         <option value="$PROJECT_DIR$/ShowWire_of_objects.py" />
         <option value="$PROJECT_DIR$/toggle_onlyRender.py" />
         <option value="$PROJECT_DIR$/master/materialFromObjectname.py" />
@@ -230,21 +210,21 @@
         <option value="$PROJECT_DIR$/00_SharpToBevel.py" />
         <option value="$PROJECT_DIR$/veniceAddon/panel.py" />
         <option value="$PROJECT_DIR$/InnerspaceAddon.py" />
+        <option value="$PROJECT_DIR$/materialFromObjectname.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2550" />
     <option name="y" value="-10" />
-    <option name="width" value="2579" />
-    <option name="height" value="1409" />
+    <option name="width" value="2580" />
+    <option name="height" value="1410" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,6 +241,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,7 +304,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2553" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14856862" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -346,7 +326,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MasterAddon/func.py" />
     <entry file="file://$PROJECT_DIR$/veniceAddon/csv_util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="992">
@@ -508,21 +487,45 @@
     <entry file="file://$PROJECT_DIR$/00_select_NgonObjects.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Delete_all_not_active_UV_Sets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" selection-start-line="3" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/00_SharpToBevel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" selection-start-line="3" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lightpack_selectedStupid.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/veniceAddon/panel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/00_addLightmapUv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="75">
           <caret line="3" selection-start-line="3" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/00_select_WeightedNoSharp.py">
+    <entry file="file://$PROJECT_DIR$/00_select_withModifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="18" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/00_select_withModifier.py">
+    <entry file="file://$PROJECT_DIR$/00_select_WeightedNoSharp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="18" selection-end-column="23" />
@@ -536,49 +539,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/00_SharpToBevel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="25" />
-          <folding>
-            <element signature="e#31#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lightpack_selectedStupid.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Delete_all_not_active_UV_Sets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/veniceAddon/panel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InnerspaceAddon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="60" column="31" lean-forward="true" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+        <state relative-caret-position="1383">
+          <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/materialFromObjectname.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#73#345#0" />
-            <element signature="e#79#422#0" />
-            <element signature="e#303#344#0" />
-            <element signature="e#60#332#0" />
-            <element signature="e#866#1138#0" />
-            <element signature="e#135#407#0" />
-            <element signature="e#5564#5836#0" />
-            <element signature="e#6415#7218#0" />
-            <element signature="e#7272#7544#0" />
-            <element signature="e#9626#10071#0" />
+            <element signature="e#127#137#0" expanded="true" />
           </folding>
         </state>
       </provider>
