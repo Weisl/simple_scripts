@@ -54,3 +54,5 @@ Temporary Items
 *.xml
 *.xml
 *.xml
+.idea/workspace.xml
+*.xml
