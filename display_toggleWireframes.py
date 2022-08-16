@@ -32,11 +32,11 @@ for ob in selectedObjects:
         texture = texture + 1
 if wire == 0 or (wire != 0 and texture != 0):
     for ob in selectedObjects:
-        bpy.context.scene.objects.active = ob
+        bpy.context.view_layer.objects.active = ob
         bpy.context.object.draw_type = 'WIRE'
 else:
     for ob in selectedObjects:
-        bpy.context.scene.objects.active = ob
+        bpy.context.view_layer.objects.active = ob
         bpy.context.object.draw_type = 'TEXTURED'
 
 print ("Finished")

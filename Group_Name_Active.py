@@ -3,7 +3,7 @@
 
 import bpy
 
-activeOb = bpy.context.scene.objects.active 
+activeOb = bpy.context.view_layer.objects.active
 grpExists = False
 
 if bpy.context.active_object is not None:
@@ -17,7 +17,7 @@ if bpy.context.active_object is not None:
 		bpy.ops.group.create(name=grpName)
 	
 	for ob in bpy.context.selected_objects:
-		bpy.context.scene.objects.active = ob
+		bpy.context.view_layer.objects.active = ob
 		bpy.ops.object.group_link(group=grpName)
 
-bpy.context.scene.objects.active = activeOb
+bpy.context.view_layer.objects.active = activeOb

@@ -33,11 +33,11 @@ for obj in bpy.context.selected_objects:
                 if mat.name == matName:
                     material = mat
         else:
-            material = makeMaterial(matName, (0.8, 0.8, 0.8, 1))
+            material = makeMaterial(matName, (0.8,0.8,0.8))
 
-        bpy.context.view_layer.objects.active = obj
-
-        for i in range(0, len(obj.material_slots)):
+            bpy.context.view_layer.objects.active = obj
+            
+        for i in range(0,len(obj.material_slots)):
             obj.active_material_index = 1
             bpy.ops.object.material_slot_remove()
 

@@ -14,7 +14,7 @@ def duplicateObject(ob):
     scene.update()
 
     new_ob.select = True
-    bpy.context.scene.objects.active = ob
+    bpy.context.view_layer.objects.active = ob
     bpy.ops.object.make_links_data(type='MODIFIERS')
     bpy.ops.object.make_links_data(type='MATERIAL')
     return new_ob
@@ -23,7 +23,7 @@ def duplicateObject(ob):
 def applyMod(obj):
     bpy.ops.object.select_all(action='DESELECT')
 
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
     bpy.ops.object.mode_set(mode='OBJECT')
 
     if obj is not None:
@@ -62,7 +62,7 @@ def main(self,context):
 
         collider.select = True
 
-        bpy.context.scene.objects.active = obj.parent
+        bpy.context.view_layer.objects.active = obj.parent
         bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
 
 

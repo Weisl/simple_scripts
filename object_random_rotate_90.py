@@ -7,7 +7,7 @@ old_selected_objects = bpy.context.selected_objects
 for obj in old_selected_objects:
     if obj.type == 'MESH':
         bpy.ops.object.select_all(action='DESELECT')
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
         obj.select = True
 
         random_number = random.randint(0,4)

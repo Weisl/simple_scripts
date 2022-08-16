@@ -9,18 +9,18 @@ def makeMaterial(name, diffuse):
     for mat in bpy.data.materials:
         if mat.name == name:
             b_mat_exists = True
-            
-    if b_mat_exists == False:     
+
+    if b_mat_exists == False:
         mat = bpy.data.materials.new(name)
         mat.diffuse_color = diffuse
         if fakeUser == True:
             mat.use_fake_user = True
     return mat
- 
+
 def setMaterial(ob, mat):
     me = ob.data
     me.materials.append(mat)
- 
+
 def run():
     # Create two materials
     red = makeMaterial('ID_Red', (1,0,0,1))
@@ -42,6 +42,6 @@ def run():
     darkgrey = makeMaterial('ID_Lightgrey', (0.75,0.75,0.75,1))
     darkgrey = makeMaterial('ID_DarkGrey', (0.25,0.25,0.25,1))
 
- 
+if __name__ == "__main__":
+    run()
 
-run()

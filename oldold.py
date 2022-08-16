@@ -22,7 +22,7 @@ assetPre = "edit_"
 def applyMod(obj):
     bpy.ops.object.select_all(action='DESELECT')
 
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
     bpy.ops.object.mode_set(mode = 'OBJECT')
 
     if obj is not None:
@@ -62,24 +62,24 @@ def convertToMesh(obj):
     bpy.ops.object.select_all(action='DESELECT')
 
     mod_obj.select = True
-    bpy.context.scene.objects.active = mod_obj
+    bpy.context.view_layer.objects.active = mod_obj
     modable_obj.select = True
 
     bpy.ops.object.make_links_data(type='MODIFIERS')
     bpy.ops.object.select_all(action='DESELECT')
 
     scene.objects.unlink(old_obj)
-    bpy.context.scene.objects.active = new_obj
+    bpy.context.view_layer.objects.active = new_obj
     applyMod(new_obj)
 
     return new_obj
 
-active_object = bpy.context.scene.objects.active
+active_object = bpy.context.view_layer.objects.active
 
 # Convert instanced Groups!
 for obj in selection:
     if obj.dupli_group == None:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
         bpy.ops.object.make_local(type='ALL')
         bpy.ops.object.duplicates_make_real(use_base_parent=True, use_hierarchy=False)
         bpy.ops.object.make_single_user(object=True, obdata=True, material=False, texture=False, animation=False)
@@ -162,7 +162,7 @@ for obj in selection:
         # merge Objects
         for ob in dupli_list:
             ob.select = True
-        bpy.context.scene.objects.active = mergedObject
+        bpy.context.view_layer.objects.active = mergedObject
         mergedObject.select = True
 
         mergedObject_list.append(mergedObject)
@@ -190,7 +190,7 @@ for obj in selection:
 for obj in mergedObject_list:
     #print ("7")
     print ("entered " + obj.name)
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
 
     bpy.ops.object.mode_set(mode='EDIT')
     bpy.ops.mesh.select_all(action='SELECT')

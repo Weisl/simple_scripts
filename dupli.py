@@ -1,3 +1,4 @@
+
 import bpy
 
 selectedObjects = list(bpy.context.selected_objects)
