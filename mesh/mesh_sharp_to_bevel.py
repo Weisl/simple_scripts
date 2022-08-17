@@ -1,6 +1,9 @@
+
+
+
 "Converts Sharp Edges to Bevels"
-import bmesh
 import bpy
+import bmesh
 
 selected = bpy.context.selected_objects.copy()
 
