@@ -1,6 +1,3 @@
-
-
-
 "Converts Sharp Edges to Bevels"
 import bpy
 import bmesh

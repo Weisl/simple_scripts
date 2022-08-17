@@ -46,8 +46,6 @@ for obj in socketList:
 
 bpy.ops.object.parent_set(type='OBJECT', keep_transform=True)
 
-
 for obj in objects:
     obj.select_set(True)
 bpy.context.view_layer.objects.active = activeObject
-

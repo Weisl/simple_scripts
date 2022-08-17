@@ -2,7 +2,8 @@ import bpy
 import re
 import random
 
-selectedObjects =  bpy.context.selected_objects.copy()
+selectedObjects = bpy.context.selected_objects.copy()
+
 
 def makeMaterial(name, diffuse):
     b_mat_exists = False
@@ -48,7 +49,7 @@ for obj in selectedObjects:
                 material = makeMaterial(matName, (random.random(), random.random(), random.random(), 1.0))
 
             child_list = []
-            child_list = get_children(obj,child_list)
+            child_list = get_children(obj, child_list)
 
             for child in child_list:
                 if child.type == 'MESH' or child.type == 'CURVE' or child.type == 'SURFACE' or child.type == 'FONT' or child.type == 'META':
@@ -57,11 +58,5 @@ for obj in selectedObjects:
                     for i in range(0, len(obj.material_slots)):
                         obj.active_material_index = i
                         bpy.ops.object.material_slot_remove()
-                        print ("entered")
+                        print("entered")
                     setMaterial(child, material)
-
-
-
-
-
-

@@ -1,4 +1,5 @@
 import bpy
+
 selected = bpy.context.selected_objects.copy()
 activeOb = bpy.context.view_layer.objects.active
 
@@ -14,12 +15,11 @@ for obj in selected:
             if grp.name == grpName:
                 grpExists = True
 
-    bpy.context.view_layer.objects.active = ob
-    ob.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+    obj.select_set(True)
 
     if bpy.context.view_layer.objects.active is not None:
         grpName = bpy.context.active_object.name + "_grp"
-
 
     if grpExists == False:
         bpy.ops.collection.create(name=grpName)

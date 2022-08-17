@@ -9,7 +9,7 @@ for obj in bpy.context.selected_objects:
     oblocation = (obj.location[0], obj.location[1], obj.location[2])
     obRotation = (obj.rotation_euler[0], obj.rotation_euler[1], obj.rotation_euler[2])
 
-    print (oblocation, obRotation)
+    print(oblocation, obRotation)
 
     obj.location = [0, 0, 0]
     obj.rotation_euler = [0, 0, 0]

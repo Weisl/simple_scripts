@@ -31,7 +31,7 @@ def setMaterial(ob, mat):
 for obj in bpy.context.selected_objects:
     """ """
     if obj.type == 'MESH':
-        matName = materialPrefix + obj.name + materialSuffix # matName.replace('_LP', '_MAT')
+        matName = materialPrefix + obj.name + materialSuffix  # matName.replace('_LP', '_MAT')
 
         if matName in bpy.data.materials:
             for mat in bpy.data.materials:
@@ -41,6 +41,3 @@ for obj in bpy.context.selected_objects:
             material = makeMaterial(matName, (0.8, 0.8, 0.8, 1.0))
 
         setMaterial(obj, material)
-
-
-

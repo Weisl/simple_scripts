@@ -4,5 +4,5 @@ import bpy
 
 for obj in bpy.context.selected_objects:
     if obj.type == 'EMPTY':
-        print (obj)
+        print(obj)
         obj.select = False

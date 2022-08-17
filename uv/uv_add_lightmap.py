@@ -14,7 +14,6 @@ for obj in selected:
             texSetList = list(obj.data.uv_layers)
             idx_set = len(texSetList)
 
-
             if "lightmap" not in obj.data.uv_layers:
                 bpy.ops.mesh.uv_texture_add()
                 bpy.context.object.data.uv_layers.active_index = idx_set

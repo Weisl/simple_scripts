@@ -11,13 +11,14 @@ bl_info = {
 
 import bpy
 
+
 class VIEW3D_OT_cycle_cameras(bpy.types.Operator):
     """Cycle through available cameras"""
     bl_idname = "view3d.cycle_cameras"
     bl_label = "Cycle Cameras"
     bl_options = {'REGISTER', 'UNDO'}
 
-    direction : bpy.props.EnumProperty(
+    direction: bpy.props.EnumProperty(
         name="Direction",
         items=(
             ('FORWARD', "Forward", "Next camera (alphabetically)"),
@@ -45,12 +46,13 @@ class VIEW3D_OT_cycle_cameras(bpy.types.Operator):
 
 addon_keymaps = []
 
+
 def register():
     bpy.utils.register_class(VIEW3D_OT_cycle_cameras)
 
     wm = bpy.context.window_manager
     kc = wm.keyconfigs.addon
-    
+
     if kc:
         km = wm.keyconfigs.addon.keymaps.new(name='3D View', space_type='VIEW_3D')
         kmi = km.keymap_items.new(VIEW3D_OT_cycle_cameras.bl_idname, 'RIGHT_ARROW', 'PRESS', ctrl=True, shift=True)
@@ -59,6 +61,7 @@ def register():
         kmi = km.keymap_items.new(VIEW3D_OT_cycle_cameras.bl_idname, 'LEFT_ARROW', 'PRESS', ctrl=True, shift=True)
         kmi.properties.direction = 'BACKWARD'
         addon_keymaps.append((km, kmi))
+
 
 def unregister():
     for km, kmi in addon_keymaps:

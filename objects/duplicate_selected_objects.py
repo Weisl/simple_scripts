@@ -1,8 +1,6 @@
-
 import bpy
 
 selectedObjects = list(bpy.context.selected_objects)
-
 
 for obj in selectedObjects:
     me = obj.data

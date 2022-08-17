@@ -14,9 +14,9 @@ for obj in selected:
             if tex != uvActive:
                 try:
                     obj.data.uv_layers.remove(tex)
-                    print ("Deleted %s on object %s" % (str(tex), obj.name))
+                    print("Deleted %s on object %s" % (str(tex), obj.name))
 
                 except Exception:
-                    print ("couldn't delete textuteset %s on object %s" % (str(tex), obj.name))
+                    print("couldn't delete textuteset %s on object %s" % (str(tex), obj.name))
             else:
-                print ("LOL")
+                print("LOL")

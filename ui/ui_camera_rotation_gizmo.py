@@ -1,4 +1,3 @@
-
 class CameraRotationWidgets(GizmoGroup):
     bl_idname = "OBJECT_GGT_rotate_camera"
     bl_label = "Object Camera Rotation Widget"
@@ -42,4 +41,3 @@ class CameraRotationWidgets(GizmoGroup):
         ob = context.object
         gz = self.roll_gizmo
         gz.matrix_basis = ob.matrix_world.normalized()
-

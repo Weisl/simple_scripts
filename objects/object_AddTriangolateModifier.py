@@ -12,4 +12,3 @@ for ob in bpy.context.selectable_objects:
 
     if triangle == False:
         ob.modifiers.new(type="TRIANGULATE", name="Export Tris")
-
