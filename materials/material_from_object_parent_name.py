@@ -45,7 +45,7 @@ for obj in selectedObjects:
             if matName in bpy.data.materials:
                 material = bpy.data.materials[matName]
             else:
-                material = makeMaterial(matName, (random.random(), random.random(), random.random()))
+                material = makeMaterial(matName, (random.random(), random.random(), random.random(), 1.0))
 
             child_list = []
             child_list = get_children(obj,child_list)

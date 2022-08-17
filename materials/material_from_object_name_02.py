@@ -33,7 +33,7 @@ for obj in bpy.context.selected_objects:
                 if mat.name == matName:
                     material = mat
         else:
-            material = makeMaterial(matName, (0.8,0.8,0.8))
+            material = makeMaterial(matName, (0.8,0.8,0.8, 1.0))
 
             bpy.context.view_layer.objects.active = obj
             
