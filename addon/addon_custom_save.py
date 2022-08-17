@@ -6,7 +6,7 @@ bl_info = {
     "description": "Master Custom Save",
     "author": "Matthias Patscheider",
     "version": (0, 0, 1),
-    "blender": (2, 79, 0),
+    "blender": (3, 0, 0),
     "location": "View3D",
     "warning": "This is an unstable version",
     "wiki_url": "",
