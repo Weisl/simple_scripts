@@ -7,16 +7,16 @@ oldActive = bpy.context.active_object
 lightmapName = 'lightmap'
 
 for obj in bpy.context.selectable_objects:
-    bpy.context.view_layer.objects.active = obj
+
     if obj.type == 'MESH':
-        if 'lightmap' not in obj.data.uv_textures:
-            bpy.ops.mesh.uv_texture_add()
-            lightmap = obj.data.uv_textures.active
+        if 'lightmap' not in obj.data.uv_layers:
+            lightmap = obj.data.uv_layers.new()
             lightmap.name = 'lightmap'
         else:
-            bpy.context.active_object.data.uv_textures['lightmap'].active = True
+            obj.data.uv_layers['lightmap'].active = True
 
+        bpy.context.view_layer.objects.active = obj
         bpy.ops.uv.lightmap_pack(PREF_CONTEXT='ALL_FACES', PREF_PACK_IN_ONE=False, PREF_NEW_UVLAYER=False,
                                  PREF_APPLY_IMAGE=False, PREF_BOX_DIV=12, PREF_MARGIN_DIV=0.1)
 
-bpy.context.scene.objects.active = oldActive
+bpy.context.view_layer.objects.active = oldActive

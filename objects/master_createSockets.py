@@ -18,7 +18,7 @@ with open(filepath, 'rb') as file:
 import bpy
 
 objects = bpy.context.selected_objects[:-1].copy()
-activeObject = bpy.context.scene.objects.active.copy()
+activeObject = bpy.context.view_layer.objects.active.copy()
 
 socketList = []
 
@@ -42,12 +42,12 @@ for obj in objects:
 for obj in objects:
     obj.select = False
 for obj in socketList:
-    obj.select = True
+    obj.select_set(True)
 
 bpy.ops.object.parent_set(type='OBJECT', keep_transform=True)
 
 
 for obj in objects:
-    obj.select = True
-bpy.context.scene.objects.active = activeObject
+    obj.select_set(True)
+bpy.context.view_layer.objects.active = activeObject
 

@@ -18,7 +18,7 @@ mergedObject_list = []
 assetPre = "edit_"
 
 def duplicateObject(ob):
-    bpy.context.scene.objects.active = ob
+    bpy.context.view_layer.objects.active = ob
     bpy.ops.object.select_all(action='DESELECT')
     #print ("1")
     me = ob.data # use current object's data
@@ -41,8 +41,8 @@ def duplicateObject(ob):
     scene.update()
     #print ("3")
 
-    new_ob.select = True
-    bpy.context.scene.objects.active = ob
+    new_ob.select_set(True)
+    bpy.context.view_layer.objects.active = ob
     bpy.ops.object.make_links_data(type='MODIFIERS')
     bpy.ops.object.make_links_data(type='MATERIAL')
 
@@ -54,7 +54,7 @@ def duplicateObject(ob):
 def applyMod(obj):
     bpy.ops.object.select_all(action='DESELECT')
     
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
     bpy.ops.object.mode_set(mode = 'OBJECT')
     
     if obj is not None:
@@ -93,25 +93,25 @@ def convertToMesh(obj):
 
     bpy.ops.object.select_all(action='DESELECT')
 
-    mod_obj.select = True
-    bpy.context.scene.objects.active = mod_obj
-    modable_obj.select = True
+    mod_obj.select_set(True)
+    bpy.context.view_layer.objects.active = mod_obj
+    modable_obj.select_set(True)
 
     bpy.ops.object.make_links_data(type='MODIFIERS')
     bpy.ops.object.select_all(action='DESELECT')
 
     scene.objects.unlink(old_obj)
-    bpy.context.scene.objects.active = new_obj
+    bpy.context.view_layer.objects.active = new_obj
     applyMod(new_obj)
 
     return new_obj
 
-active_object = bpy.context.scene.objects.active
+active_object = bpy.context.view_layer.objects.active
 
 # Convert instanced Groups!
 for obj in selection:
     if obj.dupli_group == None:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
         bpy.ops.object.make_local(type='ALL')
         bpy.ops.object.duplicates_make_real(use_base_parent=True, use_hierarchy=False)
         bpy.ops.object.make_single_user(object=True, obdata=True, material=False, texture=False, animation=False)
@@ -179,7 +179,7 @@ for obj in selection:
                 applyMod(obj)
 
         for obj in dupli_list:
-            obj.select = True
+            obj.select_set(True)
             # convert spline
             if obj.type != 'MESH':
                 new_obj = convertToMesh(obj)
@@ -192,9 +192,9 @@ for obj in selection:
 
         # merge Objects
         for ob in dupli_list:
-            ob.select = True
-        bpy.context.scene.objects.active = mergedObject
-        mergedObject.select = True
+            ob.select_set(True)
+        bpy.context.view_layer.objects.active = mergedObject
+        mergedObject.select_set(True)
 
         mergedObject_list.append(mergedObject)
         bpy.ops.object.join()
@@ -209,21 +209,21 @@ for obj in selection:
             socket.rotation_euler = oldSocket.rotation_euler
             socket.scale = oldSocket.scale
 
-            socket.select = True
+            socket.select_set(True)
             socket.layers = mergedLayer_list
         bpy.context.scene.layers[10] = True
 
 
         for col in collision_list:
             col.layers = mergedLayer_list
-            col.select = True
+            col.select_set(True)
 
         bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
 
 for obj in mergedObject_list:
     #print ("7")
     print ("entered " + obj.name)
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
 
     bpy.ops.object.mode_set(mode='EDIT')
     bpy.ops.mesh.select_all(action='SELECT')

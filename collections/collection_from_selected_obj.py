@@ -9,7 +9,7 @@ for ob in bpy.context.selected_objects:
 		grpExists = False
 
 		bpy.context.view_layer.objects.active = ob
-		ob.select = True	
+		ob.select_set(True)	
 		
 		if bpy.context.view_layer.objects.active is not None:
 			grpName = bpy.context.active_object.name + "_grp"

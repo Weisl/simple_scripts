@@ -1,7 +1,7 @@
 import bpy
 
 for obj in bpy.context.selected_objects:
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
 
     if obj.parent is not None:
         bpy.ops.object.parent_clear(type='CLEAR_KEEP_TRANSFORM')
@@ -21,7 +21,7 @@ for obj in bpy.context.selected_objects:
     empty.empty_draw_size = 15
     empty.empty_draw_type = 'CUBE'
     empty.name = emptyName
-    empty.select = True
+    empty.select_set(True)
 
     obj.parent = empty
     empty.location = oblocation

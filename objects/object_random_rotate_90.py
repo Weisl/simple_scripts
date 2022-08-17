@@ -8,7 +8,7 @@ for obj in old_selected_objects:
     if obj.type == 'MESH':
         bpy.ops.object.select_all(action='DESELECT')
         bpy.context.view_layer.objects.active = obj
-        obj.select = True
+        obj.select_set(True)
 
         random_number = random.randint(0,4)
         rotation_angle = random_number * 1.5708
@@ -18,4 +18,4 @@ for obj in old_selected_objects:
 bpy.ops.object.select_all(action='DESELECT')
 
 for obj in old_selected_objects:
-    obj.select = True
+    obj.select_set(True)

@@ -1,30 +1,18 @@
 import bpy
 
 activeOb = bpy.context.view_layer.objects.active
-areaType = bpy.context.area.type
-
-bpy.context.area.type = 'VIEW_3D'
 
 for ob in bpy.context.selected_objects:
-    bpy.ops.object.select_all(action='DESELECT')  
-    grpExists = False
-    
-    bpy.context.view_layer.objects.active = ob
-    ob.select = True    
-        
-    if bpy.context.view_layer.objects.active is not None:
-        grpName = bpy.context.active_object.name + "_grp"
-    
-    for grp in bpy.data.groups:
-        if grp.name == grpName:
-            grpExists = True
 
-    if grpExists == False:
-        bpy.ops.group.create(name=grpName)
-    
-    bpy.ops.view3d.snap_cursor_to_active()
-    bpy.ops.object.group_link(group=grpName)
-    bpy.ops.object.dupli_offset_from_cursor()   
+    collection_name = ob.name + "_col"
 
-bpy.context.view_layer.objects.active = activeOb
-bpy.context.area.type = 'TEXT_EDITOR'
+    if collection_name not in bpy.data.collections:
+        collection = bpy.data.collections.new(collection_name)
+        bpy.context.scene.collection.children.link(collection)
+
+    collection = bpy.data.collections[collection_name]
+    collection.objects.link(ob)
+
+    collection.instance_offset[0] = ob.location.x
+    collection.instance_offset[1] = ob.location.y
+    collection.instance_offset[2] = ob.location.z
