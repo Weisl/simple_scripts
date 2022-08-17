@@ -11,16 +11,14 @@ with open(filepath, 'rb') as file:
 
 '''
 
-
 import bpy
 import sys
 from os.path import isfile
 
-
 print("#################################")
 for img in bpy.data.images:
     if img.filepath.endswith("_R.png"):
-        print (img.filepath)
+        print(img.filepath)
         try:
             img.filepath = img.filepath[0:-6] + "_M.png"
             print("sucess " + img.filepath)
