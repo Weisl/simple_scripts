@@ -18,8 +18,8 @@ from os.path import isfile
 
 for img in bpy.data.images:
     filepath = img.filepath
-    if img.filepath.startswith("//textures\\2k"):
-        filepath = filepath.replace("//textures\\2k","//textures\\render" )
+    if img.filepath.startswith("//images\\2k"):
+        filepath = filepath.replace("//images\\2k","//images\\render" )
         try:
             img.filepath = filepath
             print("sucess " + img.filepath)
