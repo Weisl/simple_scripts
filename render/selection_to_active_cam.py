@@ -1,4 +1,4 @@
-"""make the selected cam the active one"""
+"""Make the selected cam the active one"""
 import bpy
 
 active_object = bpy.context.active_object

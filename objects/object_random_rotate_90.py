@@ -1,4 +1,4 @@
-"""randomly rotate an object in 90°"""
+"""Randomly rotate selected object by 90°"""
 import bpy
 import random
 

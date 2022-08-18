@@ -1,4 +1,4 @@
-"""add triangulate modifier to every object"""
+"""Add triangulate modifier to selected objects"""
 
 import bpy
 

@@ -1,5 +1,4 @@
 '''Assigns a RenderID to the selected Objects '''
-
 import bpy
 
 renderIdIdx = 1

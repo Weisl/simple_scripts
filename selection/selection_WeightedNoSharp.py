@@ -1,11 +1,10 @@
-"""select all objects that use modifier (except Triangulate and Weighted Normals)"""
+"""Deselect all objects with a 'WEIGTHED_NORMAL' modifier and keep sharp enabled"""
 import bpy
 
 selected = bpy.context.selected_objects.copy()
 new_selection = []
 
 for obj in selected:
-    bpy.context.view_layer.objects.active = obj
     modifiers = obj.modifiers
 
     if len(obj.modifiers) > 0:

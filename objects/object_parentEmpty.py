@@ -15,11 +15,18 @@ for obj in bpy.context.selected_objects:
     obj.rotation_euler = [0, 0, 0]
 
     emptyName = "SM_" + obj.name
-
     empty = bpy.data.objects.new("empty", None)
-    bpy.context.scene.objects.link(empty)
-    empty.empty_draw_size = 15
-    empty.empty_draw_type = 'CUBE'
+
+    collections = obj.users_collection
+    for col in collections:
+        for col in collections:
+            try:
+                col.objects.link(empty)
+            except RuntimeError:
+                pass
+
+    empty.empty_display_size = 15
+    empty.empty_display_type = 'CUBE'
     empty.name = emptyName
     empty.select_set(True)
 

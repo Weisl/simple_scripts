@@ -1,5 +1,4 @@
-""" align objects in y axis"""
-
+""" Align objects in y axis"""
 import bpy
 
 selected = bpy.context.selected_objects

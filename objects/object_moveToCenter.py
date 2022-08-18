@@ -1,4 +1,4 @@
-"""move selected object to zero"""
+"""Move selected objects to 0 location"""
 import bpy
 
 for obj in bpy.context.selectable_objects:

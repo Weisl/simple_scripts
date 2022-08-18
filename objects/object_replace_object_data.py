@@ -1,15 +1,13 @@
-"""replaces mesh data for all selected objects """
+"""replaces mesh data_a with mesh data_b for all selected objects """
 import bpy
 
-new_data_name = "column_railing.011"
+data_a = ""
+data_b = ""
 
-new_mesh_data = "";
 # checks if object exists
 for data in bpy.data.meshes:
-    if data.name == new_data_name:
-
-        new_mesh_data = data
-
+    if data.name == data_a:
+        data_b = data
         for obj in bpy.context.selected_objects:
             if obj.type == 'MESH':
                 obj.data = data

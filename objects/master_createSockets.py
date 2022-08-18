@@ -1,18 +1,4 @@
 """
-Slect objects for socket and than socket parent
-Creates a SOCKET object for all selected Objects. The SOCKETS are parented to the active object.
-
-# This stub runs a python script relative to the currently open
-# blend file, useful when editing scripts externally.
-
-import bpy
-import os
-
-# Use your own script name here:
-filepath = "C:/Users/weisl/Documents/GitHub/mp_mini_script_utils/autoSocketCreation.py"
-global_namespace = {"__file__": filepath, "__name__": "__main__"}
-with open(filepath, 'rb') as file:
-    exec(compile(file.read(), filepath, 'exec'), global_namespace)
 """
 
 import bpy
