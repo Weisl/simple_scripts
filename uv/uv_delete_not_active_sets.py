@@ -1,4 +1,4 @@
-"""deletes all not active UV sets"""
+"""Delete all not active UV sets"""
 import bpy
 
 selected = bpy.context.selected_objects.copy()

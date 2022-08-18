@@ -1,4 +1,4 @@
-''' stupid UV Lightpacker, if no uV set exists it creates on, otherwise it uses an existing one'''
+''' Add an additional lightmap and automatically unwrap plus pack the UVs. It's a very simplest Unwrap algorithm'''
 import bpy
 
 oldSel = bpy.context.selected_objects

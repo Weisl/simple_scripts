@@ -1,10 +1,9 @@
-"""deletes all not active UV sets"""
+"""Change active UV set to the name specified in actoveUVSet at the top. """
 import bpy
 
-selected = bpy.context.selected_objects.copy()
-activeUvSet = "map1"
 activeUvSet = "lightmap"
 
+selected = bpy.context.selected_objects.copy()
 for obj in selected:
     # print(instanciatedObjects)
     if obj.type == 'MESH':

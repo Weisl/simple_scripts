@@ -1,4 +1,4 @@
-"""deletes all not active UV sets"""
+"""Add an a additional ligmap UV set to all selected objects if they don't already have one."""
 import bpy
 
 selected = bpy.context.selected_objects.copy()
@@ -18,6 +18,3 @@ for obj in selected:
                 bpy.ops.mesh.uv_texture_add()
                 bpy.context.object.data.uv_layers.active_index = idx_set
                 bpy.context.object.data.uv_layers[idx_set].name = "lightmap"
-
-#        else:
-#            print("Instintiated")
