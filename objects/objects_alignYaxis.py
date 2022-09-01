@@ -1,9 +1,11 @@
-""" Align objects in y axis"""
+""" Align selected objects in y axis"""
 import bpy
 
 selected = bpy.context.selected_objects
+
 i = 0
 dist = 0
+
 for obj in selected:
     obj.location.z = 0
     obj.location.x = 0

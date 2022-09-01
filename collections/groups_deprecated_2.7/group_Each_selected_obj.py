@@ -1,3 +1,5 @@
+"""Deprecated: Blender 2.7x"""
+
 import bpy
 
 activeOb = bpy.context.view_layer.objects.active

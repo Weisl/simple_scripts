@@ -1,4 +1,4 @@
-"""replaces mesh data_a with mesh data_b for all selected objects """
+"""Replace mesh data_a with mesh data_b for all selected objects """
 import bpy
 
 data_a = ""

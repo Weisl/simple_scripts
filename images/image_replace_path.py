@@ -1,3 +1,5 @@
+"""Replace part of the image path for all images"""
+
 import bpy
 import os
 

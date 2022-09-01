@@ -1,5 +1,4 @@
-"""
-"""
+""" Create for all selected objects to the active one. """
 
 import bpy
 

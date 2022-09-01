@@ -1,4 +1,4 @@
-"Converts Sharp Edges to Bevels"
+"Converts all Sharp Edges of selected objects to Bevels"
 import bpy
 import bmesh
 

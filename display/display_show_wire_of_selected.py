@@ -1,4 +1,4 @@
-"""show wire of all objects"""
+"""Show wire of all selected objects"""
 import bpy
 
 for obj in bpy.context.selected_objects:

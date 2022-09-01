@@ -1,3 +1,5 @@
+'''parent selected objects to empty objects'''
+
 import bpy
 
 for obj in bpy.context.selected_objects:

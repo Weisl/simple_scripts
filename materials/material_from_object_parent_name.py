@@ -1,3 +1,4 @@
+""" Creates material based on parent name. """
 import bpy
 import re
 import random

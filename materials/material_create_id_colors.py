@@ -1,4 +1,4 @@
-"""creates ID map materials """
+"""creates ID color materials """
 
 fakeUser = True
 

@@ -1,3 +1,5 @@
+"""Create collection from object and sett instance offset based on the object. """
+
 import bpy
 
 activeOb = bpy.context.view_layer.objects.active

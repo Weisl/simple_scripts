@@ -1,3 +1,4 @@
+"""Create s collection for each selected object and set the instance offset to the object origin"""
 import bpy
 
 for ob in bpy.context.selected_objects:

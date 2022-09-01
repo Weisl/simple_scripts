@@ -1,4 +1,4 @@
-"""Add an a additional ligmap UV set to all selected objects if they don't already have one."""
+"""Add a ligmap UV set to all selected objects if they don't already have one."""
 import bpy
 
 selected = bpy.context.selected_objects.copy()

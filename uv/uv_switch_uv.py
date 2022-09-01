@@ -1,4 +1,4 @@
-"""Change active UV set to the name specified in actoveUVSet at the top. """
+"""Change the active UV set to the name specified in actoveUVSet at the top. """
 import bpy
 
 activeUvSet = "lightmap"

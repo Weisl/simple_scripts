@@ -1,10 +1,10 @@
-''' Add an additional lightmap and automatically unwrap plus pack the UVs. It's a very simplest Unwrap algorithm'''
+''' Add a lightmap to selected objects and automatically unwrap and pack the UVs. It's a very simplest Unwrap algorithm'''
 import bpy
+
+lightmapName = 'lightmap'
 
 oldSel = bpy.context.selected_objects
 oldActive = bpy.context.active_object
-
-lightmapName = 'lightmap'
 
 for obj in bpy.context.selectable_objects:
 

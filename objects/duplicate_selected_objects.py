@@ -1,3 +1,5 @@
+'''Duplicate the selected objects'''
+
 import bpy
 
 selectedObjects = list(bpy.context.selected_objects)

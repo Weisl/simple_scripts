@@ -1,3 +1,4 @@
+"""Delete all empty material slots."""
 import bpy
 
 c = bpy.context

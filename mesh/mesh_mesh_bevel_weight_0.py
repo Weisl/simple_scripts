@@ -1,4 +1,4 @@
-"Sets all bevels weights to 0"
+"Sets all bevels weights of selected objects  to 0"
 import bpy
 import bmesh
 

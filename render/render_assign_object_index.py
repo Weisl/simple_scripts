@@ -1,4 +1,4 @@
-'''Assigns a RenderID to the selected Objects '''
+'''Assigns a RenderID to the selected Objects. Render id can be changed by changing renderIdIdx '''
 import bpy
 
 renderIdIdx = 1

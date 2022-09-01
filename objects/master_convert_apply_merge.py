@@ -1,5 +1,4 @@
-"""
-"""
+""" Old script for applying all modifiers etc. Won't work anymore likely"""
 
 import bpy, bmesh
 
