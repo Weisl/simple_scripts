@@ -40,7 +40,7 @@ def construct_python_faces(bmesh_faces):
         for v in f.verts:
             if v not in py_verts:
                 # this vert is found for the first time, add it
-                py_verts.append(v)
+                py_verts.append(v.co)
 
             # add the new index of the current vert to the current face index list
             cur_face_indices.append(py_verts.index(v))
@@ -48,7 +48,7 @@ def construct_python_faces(bmesh_faces):
         # face index list construction is complete, add it to the face list
         py_faces.append(cur_face_indices)
 
-    print(py_verts, py_faces)
+    #print(py_verts, py_faces)
     dic['py_verts'] = py_verts
     dic['py_faces'] = py_faces
 
@@ -60,10 +60,9 @@ def get_face_islands(bm, faces, face_islands = [], i=0):
         bm.faces.ensure_lookup_table()
 
         print('FACES ' + str(len(faces)))
-
         linked_faces = get_linked_faces(faces[0])
         print('LINKED FACES ' + str(len(linked_faces)))
-        face_islands.append(construct_python_faces(linked_faces))
+        face_islands.append(construct_python_faces(linked_faces.copy()))
 
 
         remaining_faces = [face for face in faces if face not in linked_faces]
@@ -92,7 +91,7 @@ def main():
         name = 'Object'
         me = bpy.data.meshes.new(name)
 
-        me.from_pydata([wld_mat @ x.co for x in py_verts], [], py_faces)
+        me.from_pydata([wld_mat @ x_co for x_co in py_verts], [], py_faces)
 
         # create a new object, and link it to the current view layer for display
         ob = bpy.data.objects.new(name='output', object_data=me)
