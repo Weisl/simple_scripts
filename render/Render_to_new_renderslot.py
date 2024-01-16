@@ -3,7 +3,7 @@
 import bpy
 from bpy.app.handlers import persistent
 
-used_renderslots = 7
+used_renderslots = 14
 
 @persistent
 def PostRender(self):
