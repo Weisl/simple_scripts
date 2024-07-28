@@ -1,4 +1,4 @@
-'''Duplicate the selected objects'''
+"""Duplicate the selected objects"""
 
 import bpy
 

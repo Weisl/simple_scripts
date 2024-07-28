@@ -1,4 +1,4 @@
-'''parent selected objects to empty objects'''
+"""parent selected objects to empty objects"""
 
 import bpy
 
