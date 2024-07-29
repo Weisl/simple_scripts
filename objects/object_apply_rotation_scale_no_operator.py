@@ -29,21 +29,21 @@ loc, rot, sca = mx.decompose()
 
 # apply the current transformations on the mesh level
 if rotation and scale:
-    meshmx = get_rot_matrix(rot) @ get_sca_matrix(sca)
+    mesh_matrix = get_rot_matrix(rot) @ get_sca_matrix(sca)
 elif rotation:
-    meshmx = get_rot_matrix(rot)
+    mesh_matrix = get_rot_matrix(rot)
 elif scale:
-    meshmx = get_sca_matrix(sca)
+    mesh_matrix = get_sca_matrix(sca)
 
-obj.data.transform(meshmx)
+obj.data.transform(mesh_matrix)
 
 if rotation and scale:
-    applymx = get_loc_matrix(loc) @ get_rot_matrix(Quaternion()) @ get_sca_matrix(Vector.Fill(3, 1))
+    apply_matrix = get_loc_matrix(loc) @ get_rot_matrix(Quaternion()) @ get_sca_matrix(Vector.Fill(3, 1))
 elif rotation:
-    applymx = get_loc_matrix(loc) @ get_rot_matrix(Quaternion()) @ get_sca_matrix(sca)
+    apply_matrix = get_loc_matrix(loc) @ get_rot_matrix(Quaternion()) @ get_sca_matrix(sca)
 elif scale:
-    applymx = get_loc_matrix(loc) @ get_rot_matrix(rot) @ get_sca_matrix(Vector.Fill(3, 1))
+    apply_matrix = get_loc_matrix(loc) @ get_rot_matrix(rot) @ get_sca_matrix(Vector.Fill(3, 1))
 
-applymx = get_loc_matrix(loc) @ get_rot_matrix(rot) @ get_sca_matrix(Vector.Fill(3, 1))
-obj.matrix_world = applymx
+apply_matrix = get_loc_matrix(loc) @ get_rot_matrix(rot) @ get_sca_matrix(Vector.Fill(3, 1))
+obj.matrix_world = apply_matrix
 

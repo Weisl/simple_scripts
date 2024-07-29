@@ -1,4 +1,4 @@
-'''Automatically render to a new render slot. Change used_renderslots to define how many render slots should be used '''
+"""Automatically render to a new render slot. Change used_renderslots to define how many render slots should be used """
 
 import bpy
 from bpy.app.handlers import persistent

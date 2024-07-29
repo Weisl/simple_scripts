@@ -1,4 +1,4 @@
-''' Add a lightmap to selected objects and automatically unwrap and pack the UVs. It's a very simplest Unwrap algorithm'''
+""" Add a lightmap to selected objects and automatically unwrap and pack the UVs. It's a very simplest Unwrap algorithm"""
 import bpy
 
 lightmapName = 'lightmap'

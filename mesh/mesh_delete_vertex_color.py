@@ -1,4 +1,4 @@
-''' Delete all vertex color channels of the selected objects. '''
+""" Delete all vertex color channels of the selected objects. """
 
 import bpy
 

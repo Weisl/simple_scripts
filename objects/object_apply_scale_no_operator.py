@@ -25,9 +25,9 @@ mx = obj.matrix_world
 loc, rot, sca = mx.decompose()
 
 # apply the current transformations on the mesh level
-meshmx = get_sca_matrix(sca)
+mesh_matrix = get_sca_matrix(sca)
 
-applymx = get_loc_matrix(loc) @ get_rot_matrix(rot) @ get_sca_matrix(Vector.Fill(3, 1))
-obj.matrix_world = applymx
+apply_matrix = get_loc_matrix(loc) @ get_rot_matrix(rot) @ get_sca_matrix(Vector.Fill(3, 1))
+obj.matrix_world = apply_matrix
 
-obj.data.transform(meshmx)
+obj.data.transform(mesh_matrix)

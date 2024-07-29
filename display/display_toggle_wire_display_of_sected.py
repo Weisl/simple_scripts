@@ -1,4 +1,4 @@
-'''Toggle between texture and wire view for all selected objects '''
+"""Toggle between texture and wire view for all selected objects """
 
 import bpy
 
