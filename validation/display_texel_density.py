@@ -1,7 +1,6 @@
-import bpy
 import bmesh
+import bpy
 import gpu
-from mathutils import Vector
 from gpu_extras.batch import batch_for_shader
 
 # Draw handler reference
@@ -119,58 +118,58 @@ def toggle_texel_density_overlay(self, context):
 
 def draw_texel_density_overlay():
     context = bpy.context  # Access the global context
-    obj = context.active_object
-    if obj is None or obj.type != 'MESH':
-        return
-
     texel_props = context.scene.texel_props
     reference_texture_size = texel_props.reference_texture_size
-    avg_texel_density = texel_props.average_texel_density
 
-    mesh = bmesh.new()
-    mesh.from_mesh(obj.data)
-    uv_layer = mesh.loops.layers.uv.verify()
-
-    # Create a shader for drawing
-    shader = gpu.shader.from_builtin('UNIFORM_COLOR')
-    gpu.state.blend_set('ALPHA')
-
-    # Get object transformation matrix
-    obj_matrix = obj.matrix_world
-
-    for face in mesh.faces:
-        face_area = face.calc_area()  # World space area in square meters
-
-        if face_area == 0:
+    for obj in context.selected_objects:
+        if obj.type != 'MESH':
             continue
 
-        uv_area = calculate_uv_area(face, uv_layer)
-        if uv_area == 0:
-            continue
+        mesh = bmesh.new()
+        mesh.from_mesh(obj.data)
+        uv_layer = mesh.loops.layers.uv.verify()
 
-        # Calculate the texel density
-        texel_density = reference_texture_size * (uv_area / face_area) ** 0.5
+        # Create a shader for drawing
+        shader = gpu.shader.from_builtin('UNIFORM_COLOR')
+        gpu.state.blend_set('ALPHA')
 
-        # Determine the color based on texel density
-        color = (0.0, 1.0, 0.0, 0.3)  # Default to green
-        if texel_density > avg_texel_density:
-            color = (1.0, 0.0, 0.0, 0.3)  # Red for higher density
-        elif texel_density < avg_texel_density:
-            color = (0.0, 0.0, 1.0, 0.3)  # Blue for lower density
+        # Get object transformation matrix
+        obj_matrix = obj.matrix_world
 
-        # Triangulate the face for correct rendering using bmesh.ops.triangulate
-        geom = [face]
-        bmesh.ops.triangulate(mesh, faces=geom)
+        for face in mesh.faces:
+            face_area = face.calc_area()  # World space area in square meters
 
-        for tri_face in geom:
-            vertices = [obj_matrix @ loop.vert.co for loop in tri_face.loops]
-            batch = batch_for_shader(shader, 'TRIS', {"pos": vertices})
-            shader.bind()
-            shader.uniform_float("color", color)
-            batch.draw(shader)
+            if face_area == 0:
+                continue
 
-    mesh.free()
-    gpu.state.blend_set('NONE')
+            uv_area = calculate_uv_area(face, uv_layer)
+            if uv_area == 0:
+                continue
+
+            # Calculate the texel density
+            texel_density = reference_texture_size * (uv_area / face_area) ** 0.5
+
+            # Determine the color based on texel density
+            if texel_density == reference_texture_size:
+                color = (0.0, 1.0, 0.0, 0.3)  # Green for exact match
+            elif texel_density > reference_texture_size:
+                color = (1.0, 0.0, 0.0, 0.3)  # Red for higher density
+            else:
+                color = (0.0, 0.0, 1.0, 0.3)  # Blue for lower density
+
+            # Triangulate the face for correct rendering using bmesh.ops.triangulate
+            geom = [face]
+            bmesh.ops.triangulate(mesh, faces=geom)
+
+            for tri_face in geom:
+                vertices = [obj_matrix @ loop.vert.co for loop in tri_face.loops]
+                batch = batch_for_shader(shader, 'TRIS', {"pos": vertices})
+                shader.bind()
+                shader.uniform_float("color", color)
+                batch.draw(shader)
+
+        mesh.free()
+        gpu.state.blend_set('NONE')
 
 
 def calculate_uv_area(face, uv_layer):
