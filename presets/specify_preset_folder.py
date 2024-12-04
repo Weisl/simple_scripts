@@ -37,7 +37,7 @@ class SimpleExporterProperties(bpy.types.PropertyGroup):
         default="",
         subtype='DIR_PATH',
     )
-    simple_exporter_preset_path: bpy.props.EnumProperty(
+    simple_export_preset_path: bpy.props.EnumProperty(
         name="Preset File",
         description="Select a .py file",
         items=lambda self, context: self.get_py_files(),
@@ -71,14 +71,14 @@ class SimpleExporterProperties(bpy.types.PropertyGroup):
 
 class SimpleExporterPanel(bpy.types.Panel):
     bl_label = "Simple Exporter"
-    bl_idname = "SCENE_PT_simple_exporter"
+    bl_idname = "SCENE_PT_simple_export"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
     bl_context = 'scene'
 
     def draw(self, context):
         layout = self.layout
-        props = context.scene.simple_exporter_props
+        props = context.scene.simple_export_props
 
         layout.prop(props, "export_format", text="Export Format")
         layout.prop(props, "override_path", text="Override Preset Folder")
@@ -87,19 +87,19 @@ class SimpleExporterPanel(bpy.types.Panel):
         row.enabled = props.override_path  # Only enable preset_path editing if override_path is true
         row.prop(props, "preset_path", text="Preset Folder")
 
-        layout.prop(props, "simple_exporter_preset_path", text="Preset File")
+        layout.prop(props, "simple_export_preset_path", text="Preset File")
 
 
 def register():
     bpy.utils.register_class(SimpleExporterProperties)
     bpy.utils.register_class(SimpleExporterPanel)
-    bpy.types.Scene.simple_exporter_props = bpy.props.PointerProperty(type=SimpleExporterProperties)
+    bpy.types.Scene.simple_export_props = bpy.props.PointerProperty(type=SimpleExporterProperties)
 
 
 def unregister():
     bpy.utils.unregister_class(SimpleExporterProperties)
     bpy.utils.unregister_class(SimpleExporterPanel)
-    del bpy.types.Scene.simple_exporter_props
+    del bpy.types.Scene.simple_export_props
 
 
 if __name__ == "__main__":
