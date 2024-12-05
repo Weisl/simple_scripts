@@ -37,7 +37,7 @@ class SimpleExporterProperties(bpy.types.PropertyGroup):
         default="",
         subtype='DIR_PATH',
     )
-    simple_export_preset_path: bpy.props.EnumProperty(
+    simple_export_preset_file: bpy.props.EnumProperty(
         name="Preset File",
         description="Select a .py file",
         items=lambda self, context: self.get_py_files(),
@@ -87,7 +87,7 @@ class SimpleExporterPanel(bpy.types.Panel):
         row.enabled = props.override_path  # Only enable preset_path editing if override_path is true
         row.prop(props, "preset_path", text="Preset Folder")
 
-        layout.prop(props, "simple_export_preset_path", text="Preset File")
+        layout.prop(props, "simple_export_preset_file", text="Preset File")
 
 
 def register():
