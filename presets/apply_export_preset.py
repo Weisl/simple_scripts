@@ -27,7 +27,7 @@ def parse_preset_file(preset_path):
     return properties
 
 
-def apply_preset_to_exporter(properties, exporter):
+def assign_preset_to_exporter(properties, exporter):
     """Apply parsed properties to the exporter."""
     for prop_name, prop_value in properties.items():
         try:
@@ -55,6 +55,6 @@ if hasattr(collection, "exporters") and len(collection.exporters) > 0:
     preset_properties = parse_preset_file(preset_path)
 
     # Apply the properties to the exporter
-    apply_preset_to_exporter(preset_properties, exporter)
+    assign_preset_to_exporter(preset_properties, exporter)
 else:
     print("No exporters found in the current collection.")

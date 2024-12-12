@@ -37,11 +37,13 @@ class SimpleExporterProperties(bpy.types.PropertyGroup):
         default="",
         subtype='DIR_PATH',
     )
+
     simple_export_preset_file: bpy.props.EnumProperty(
         name="Preset File",
         description="Select a .py file",
         items=lambda self, context: self.get_py_files(),
     )
+
     override_path: bpy.props.BoolProperty(
         name="Override Preset Folder",
         description="Manually override the automatically set preset folder",
