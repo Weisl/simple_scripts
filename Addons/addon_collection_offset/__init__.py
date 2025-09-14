@@ -37,7 +37,8 @@ def apply_collection_offset(collection, inverse=False):
     """
     collection_offset = collection.instance_offset
 
-    for obj in collection.all_objects:
+    for obj in collection.objects:
+        print(f"OBJECT: {obj.name}")
         if obj.parent is None:  # Only apply to top-level objects
             apply_location_offset(obj, collection_offset, inverse)
 
