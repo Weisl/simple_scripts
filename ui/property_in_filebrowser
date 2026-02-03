@@ -1,0 +1,93 @@
+import bpy
+import os
+from bpy.props import StringProperty, BoolProperty
+from bpy_extras.io_utils import ImportHelper
+
+class WM_OT_SelectDirectory(bpy.types.Operator, ImportHelper):
+    """Select a directory, with an option to use relative paths."""
+    bl_idname = "wm.select_directory"
+    bl_label = "Select Directory"
+    bl_description = "Open a file browser to select a directory"
+
+    filename_ext = ""
+    filter_glob: StringProperty(default="", options={'HIDDEN'})
+
+    # Custom property for the toggle
+    use_relative_path: BoolProperty(
+        name="Use Relative Path",
+        description="Store the path relative to the .blend file",
+        default=False,
+    )
+
+    def execute(self, context):
+        # Store the selected path and the toggle state
+        context.scene.my_directory_props.directory_path = self.filepath
+        context.scene.my_directory_props.use_relative_path = self.use_relative_path
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        # Initialize the toggle state from scene properties
+        self.use_relative_path = context.scene.my_directory_props.use_relative_path
+        context.window_manager.fileselect_add(self)
+        return {'RUNNING_MODAL'}
+
+    def draw(self, context):
+        # This method adds custom UI to the file browser
+        layout = self.layout
+        layout.prop(self, "use_relative_path")
+
+# Property group to store the path and toggle state
+class MyDirectoryProperties(bpy.types.PropertyGroup):
+    directory_path: StringProperty(
+        name="Directory Path",
+        subtype='DIR_PATH',
+    )
+    use_relative_path: BoolProperty(
+        name="Use Relative Path",
+        description="Store the path relative to the .blend file",
+        default=False,
+    )
+
+# Panel to display the selected path and a button to open the file browser
+class VIEW3D_PT_DirectoryPanel(bpy.types.Panel):
+    bl_label = "Directory Path"
+    bl_idname = "VIEW3D_PT_directory_panel"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_category = "Tool"
+
+    def draw(self, context):
+        layout = self.layout
+        props = context.scene.my_directory_props
+
+        layout.prop(props, "directory_path")
+        layout.operator("wm.select_directory", text="Select Directory")
+
+        # Display the resolved path
+        if props.directory_path:
+            blend_dir = os.path.dirname(bpy.data.filepath) if bpy.data.filepath else ""
+            if props.use_relative_path and blend_dir:
+                resolved_path = os.path.abspath(os.path.join(blend_dir, props.directory_path))
+                layout.label(text=f"Resolved: {resolved_path}")
+            else:
+                layout.label(text=f"Resolved: {props.directory_path}")
+
+# Registration
+classes = (
+    MyDirectoryProperties,
+    WM_OT_SelectDirectory,
+    VIEW3D_PT_DirectoryPanel,
+)
+
+def register():
+    for cls in classes:
+        bpy.utils.register_class(cls)
+    bpy.types.Scene.my_directory_props = bpy.props.PointerProperty(type=MyDirectoryProperties)
+
+def unregister():
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)
+    del bpy.types.Scene.my_directory_props
+
+if __name__ == "__main__":
+    register()
