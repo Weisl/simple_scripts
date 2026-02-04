@@ -29,7 +29,7 @@ class SimpleExporterProperties(bpy.types.PropertyGroup):
             ("ALEMBIC", "Alembic", "Alembic Export"),
         ],
         default="FBX",
-        update=lambda self, context: self.update_preset_path()
+
     )
     preset_path: bpy.props.StringProperty(
         name="Preset Folder Path",
@@ -50,10 +50,6 @@ class SimpleExporterProperties(bpy.types.PropertyGroup):
         default=False,
     )
 
-    def update_preset_path(self):
-        """Automatically set the preset path based on the export format unless overridden."""
-        if not self.override_path:
-            self.preset_path = EXPORT_PRESET_FOLDERS.get(self.export_format, "")
 
     def get_py_files(self):
         """Retrieve all .py files from the specified folder."""
